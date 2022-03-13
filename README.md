@@ -1,46 +1,42 @@
-# Getting Started with Create React App
+# Vic Trodd's Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is the code for my website!  I'm building it using React and TypeScript, and then deploying it to be used as a Github Page using the [gh-pages](https://www.npmjs.com/package/gh-pages) package, so there will be a `gh-deploy` branch when I eventually decide this is ready to be deployed!
 
-## Available Scripts
+## Contributing
 
-In the project directory, you can run:
+I have no idea how to let other people contribute, but I can at least help you to get this set up in a local environment (and then have one of you more experienced people tell me what I need to do for you to contribute!).
 
-### `npm start`
+Feel free to add issues, make them as in-depth as you feel is necessary!
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Unless necessary, you should clone from the `master` branch and push updates to a new branch with some relation to the issue you are working on, which should generally be in the form `VT-xxx` depending on what issue number we're at.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
-### `npm test`
+## Set up a local vtrodd.github.io
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+This is a fairly straightforward process that you might already know, but I don't want to leave people behind!
 
-### `npm run build`
+You'll need a couple of things: [Git](https://git-scm.com/downloads) and [Node.js](https://nodejs.org/en/download/).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Once you've got those, you'll want to open a Git Bash terminal somewhere, and run this:
+```
+git clone https://github.com/vtrodd/vtrodd.github.io
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+You'll next want to change directory to the newly created `vtrodd.github.io` folder from within that Git Bash terminal, using:
+```
+cd vtrodd.github.io
+```
+Since you'll likely be working on a specific issue, you'll want to switch to a new branch with the relevant name, which you can do in the Git Bash terminal:
+```
+git checkout -b VT-xxx
+```
+And from there, still in that Git Bash window:
+```
+npm install
+```
+This will install the necessary node modules (don't worry, these won't be tracked and added to any commits you make!).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Now, your local repository is ready for to be worked on, and you'll also already be able to run a local server for the app by opening any command line and running:
+```
+npm start
+```

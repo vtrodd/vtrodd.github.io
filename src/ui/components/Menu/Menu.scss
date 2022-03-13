@@ -1,0 +1,43 @@
+@import 'src/utils/colors';
+header {
+  width: 100%;
+  border-bottom: 2px solid rgba($light, 0.1);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  justify-content: space-between;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      a {
+        display: flex;
+        border-bottom: 2px solid transparent;
+        transition: all .2s ease-in-out;
+        padding: 0 1rem;
+        &.active {
+          background: rgba($light, 0.1);
+          border-bottom: 2px solid $secondary;
+        }
+        &:hover {
+          background: rgba($light, 0.1);
+        }
+        h2 {
+          &:first-of-type {
+            margin-right: .5rem;
+          }
+          padding: 0;
+        }
+      }
+    }
+  }
+}

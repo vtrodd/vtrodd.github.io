@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" class="bogo">
+	<defs>
+		<style>
+			.blue {
+				fill: #0094ff
+			}
+			
+			.shadow {
+				fill: #1d1d1d;
+				mix-blend-mode: multiply
+			}
+			
+			.half {
+				opacity: 0.5
+			}
+			
+			.quarter {
+				opacity: 0.25
+			}
+			
+			.char {
+				fill: #fff
+			}
+		</style>
+	</defs>
+
+    <rect class="blue" width="96" height="96" rx="8" />
+    <polygon class="shadow half" points="52 16 52 44 52 84 60 84 60 44 76 44 76 16 52 16" />
+    <polygon class="shadow quarter" points="52 36 52 40 52 84 56 84 56 40 68 40 68 36 52 36" />
+    <rect class="shadow quarter" x="52" y="36" width="16" height="2" />
+    <rect class="shadow quarter" x="52" y="36" width="16" height="1" />
+    <polygon class="char" points="16 16 16 36 32 36 32 84 52 84 52 36 68 36 68 16 16 16" />
+</svg>
