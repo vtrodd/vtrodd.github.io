@@ -1,24 +1,26 @@
 @import 'src/utils/colors';
 .name-badge {
+  transition: margin .2s ease-in-out;
+  white-space: nowrap;
   position: relative;
   height: fit-content;
   width: fit-content;
   display: grid;
   border-radius: .5rem;
-  margin-left: 1rem;
+  margin: 0 1rem;
   padding: .1rem .5rem;
   border: solid 1px $primary;
   background: $primary;
-  z-index: 1;
+  z-index: 101;
   overflow: hidden;
   .tags {
-    z-index: 2;
+    z-index: 102;
   }
   h2,
   h3 {
     margin: 0;
     padding: 0;
-    z-index: 3;
+    z-index: 103;
   }
   h2 {
     font-size: 2em;
@@ -32,14 +34,15 @@
   }
   .tap {
     opacity: 0;
+    border-radius: 8px;
     position: absolute;
-    width: 20px;
+    width: 1rem;
     height: 100px;
     bottom: 100%;
     left: 2ch;
     background: $primary;
-    z-index: 1;
-    transition: bottom .2s ease-in-out;
+    z-index: 101;
+    transition: all .2s ease-in-out;
   }
   .water {
     position: absolute;
@@ -53,10 +56,10 @@
   &:hover {
     .tap {
       opacity: 1;
-      bottom: 0;
+      bottom: -8px;
     }
     .water {
-      transform: translateX(50%) translateY(-300%) rotate(20deg) scaleX(4) scaleY(4);
+      transform: translateX(50%) translateY(-300%) rotate(10deg) scaleX(4) scaleY(4);
     }
   }
 }

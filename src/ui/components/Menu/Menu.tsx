@@ -1,10 +1,18 @@
+import { useState } from 'react'
 import { NavLink } from 'react-router-dom'
+import { useDevice } from '../../../hooks'
 import './Menu.scss'
 import { NameBadge } from './NameBadge/NameBadge'
 
 export const Menu = () => {
+  const { mobile, width } = useDevice()
+  const headerClass = (width < 815 || mobile) ? 'mobile' : width < 1112 ? 'big-mobile' : ''
+
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+
   return (
-    <header>
+    <>
+    <header className={headerClass + (isMobileMenuOpen ? ' open' : '')}>
       <NameBadge />
       <nav>
         <ul className={`menu`}>
@@ -14,7 +22,12 @@ export const Menu = () => {
           <li><NavLink to='/photos'><h2>📸</h2><h2>Photos</h2></NavLink></li>
         </ul>
       </nav>
-      <h2></h2>
+      <span className='mobile-button' onClick={() => setIsMobileMenuOpen(c => !c)}>
+        <span className={isMobileMenuOpen ? 'open' : ''} />
+        <span className={isMobileMenuOpen ? 'open' : ''} />
+      </span>
     </header>
+    {headerClass === 'mobile' && <span className='mobile-spacer' />}
+    </>
   )
 }
