@@ -1,7 +1,3 @@
-export const Home = () => {
-  return (
-    <div>
-      <h1>Home</h1>
-    </div>
-  )
-}
+import { Construction } from ".."
+
+export const Home = () => <Construction />
