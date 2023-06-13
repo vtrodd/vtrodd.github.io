@@ -1,14 +1,14 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Home, REDIRECTS } from '../../pages';
+import { Home, DOWNLOADS } from '../../pages';
 import './Root.scss';
 
 export const Root = () => {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
       <Routes>
         <Route index element={<Home />} />
-        {REDIRECTS.map((redirect, index) => {
-          return <Route key={index} path={redirect.from} element={redirect.component} />
+        {DOWNLOADS.map((download, index) => {
+          return <Route key={index} path={download.from} element={download.component} />
         })}
       </Routes>
     </BrowserRouter>

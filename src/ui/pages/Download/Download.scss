@@ -1,4 +1,4 @@
-.redirect {
+.download {
   background: #f8f8d8;
   display: flex;
   flex-direction: column;
@@ -18,9 +18,9 @@
   a {
     text-decoration: none;
     transition: color 0.2s ease-in-out;
-  }
 
-  a:hover {
-    color: #785729;
+    &:hover {
+      color: #785729;
+    }
   }
 }
