@@ -1,4 +1,4 @@
-import {Download, Save, SaveSharp} from "@mui/icons-material"
+import {Download} from '@mui/icons-material'
 import './DownloadButton.scss'
 
 interface DownloadButtonProps {
