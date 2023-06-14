@@ -9,6 +9,7 @@ interface DownloadProps {
 
 export const Download = ({title, text, to}: DownloadProps) => {
   return (
+    <>
     <div className='download'>
       <h1>{title}</h1>
       <div className='horizontal-container'>
@@ -17,5 +18,7 @@ export const Download = ({title, text, to}: DownloadProps) => {
       </div>
       <p><i>Sorry this page isn't very exciting, but it might be in the future!</i></p>
     </div>
+    <div className='bg-texture'></div>
+    </>
   )
 }
