@@ -25,5 +25,13 @@ export const DOWNLOADS: {from: string, component: JSX.Element}[] = [
       to='https://www.dropbox.com/scl/fi/kb07wj98q9xjmgqqfv0ug/2023.03-UYCB-Spring-Concert.zip?dl=1&rlkey=iv5g98tfcats3xfie8b6lcxs9'
     />
   },
+  {
+    from: 'download/uycb/2021/winter',
+    component: <Download
+      title='UYCB Winter Concert 2021'
+      text='46 Photos, 196.29MB'
+      to='https://www.dropbox.com/scl/fi/o40mu81tp75rqc03ulvuz/2021.11-UYCB-Winter-Concert.zip?dl=0&rlkey=25t9yg4ouigu6uaeusozumzxp'
+    />
+  }
   
 ]
