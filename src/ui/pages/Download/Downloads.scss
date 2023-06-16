@@ -1,0 +1,60 @@
+.downloads {
+ background: #f9f9e8;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ height: 100%;
+ width: 100%;
+ font-size: 2rem;
+ gap: 2rem;
+
+ h1 {
+  margin-bottom: 0;
+  text-align: center;
+ }
+
+ p {
+  text-align: center;
+ }
+
+ .folder-grid {
+  display: grid;
+  margin: 2rem;
+  width: calc(100% - 4rem);
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 2rem;
+
+  .folder {
+   border: 2px solid #000;
+   display: flex;
+   flex-direction: column;
+   align-items: baseline;
+   gap: 1rem;
+   padding: 1rem;
+   background: #fff;
+   transition: all 0.2s ease-in-out;
+
+   h2 {
+    margin: 0;
+    font-size: 1.5rem;
+   }
+
+   p {
+    font-size: 1.2rem;
+   }
+
+   &:hover {
+    scale: 1.01;
+    box-shadow: 0.4rem 0.4rem rgba(0, 0, 0, 0.5);
+   }
+
+   .download-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    gap: 1rem;
+   }
+  }
+ }
+}
