@@ -1,3 +1,9 @@
-import { Construction } from ".."
+import './Home.scss';
 
-export const Home = () => <Construction />
+export const Home = () => {
+
+  return (
+    <div id='home'>
+    </div>
+  );
+}

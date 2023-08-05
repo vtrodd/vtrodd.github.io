@@ -12,3 +12,8 @@ export interface IDownload extends IItem {
   description: string
   download_url: string
 }
+
+export interface ICardable extends IItem {
+  date: string
+  local_image_url: string
+}
