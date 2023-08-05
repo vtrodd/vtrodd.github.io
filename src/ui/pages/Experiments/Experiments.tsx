@@ -24,11 +24,16 @@ export const Experiments = () => {
     setOpen(true)
   }
 
+  const dialogOnClose = () => {
+    setOpen(false)
+    setTimeout(() => setSelectedExperiment(null), 300)
+  }
+
   return (
     <>
       <CardBrowser showLabel items={sortedExperiments} onClick={cardOnClick} />
       
-      <Dialog open={open} onClose={() => {setOpen(false); setSelectedExperiment(null)}}>
+      <Dialog open={open} onClose={dialogOnClose}>
         <Suspense fallback={<div>Loading...</div>}>
           {selectedExperiment && <selectedExperiment.component />}
         </Suspense>
