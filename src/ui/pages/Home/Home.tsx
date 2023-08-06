@@ -18,7 +18,7 @@ export const HomeMainContent = () => {
       </div>
 
       <div className='right-side'>
-        <h1>Vic</h1><h1>Trodd</h1>
+        <h1><span>Vic</span><span>Trodd</span></h1>
         <div id='development-carousel'>
           <div id='carousel'>
             <p>Software</p>

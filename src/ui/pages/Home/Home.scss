@@ -1,19 +1,14 @@
 #home {
   padding: 2em;
-  h2, h3, h4 {
+  h2,
+  h3,
+  h4 {
     margin: 0;
     padding: 0;
   }
 }
 
-.main-content {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
 #home-main-content {
-  padding: 1em 2em;
   height: 100%;
   display: flex;
   justify-content: space-between;
@@ -21,15 +16,15 @@
   > div {
     padding: 1em;
     &.left-side {
-      margin: 2em 0;
+      max-width: 30%;
+      height: min-content;
       clip-path: polygon(0 0, calc(100% - 6em) 0, 100% 6em, 100% 100%, 6em 100%, 0 calc(100% - 6em));
       transition: all 0.3s ease-in-out;
       img {
-        height: 100%;
+        width: 100%;
         vertical-align: top;
 
         background-image: url('me-low.jpg');
-
       }
 
       &:hover {
@@ -44,9 +39,14 @@
       font-weight: 700;
 
       h1 {
+        text-align: right;
         display: inline-block;
         font-size: 4.5em;
-        margin: 0 0 0 0.45em;
+        width: 100%;
+        > span {
+          margin: 0 0 0 0.45em;
+        }
+        margin: 0;
       }
 
       p {
@@ -83,14 +83,51 @@
   }
 }
 
+[data-device='tiny'],
+[data-device='small'] {
+  #home-main-content {
+    justify-content: end;
+    > div {
+      &.left-side {
+        display: none;
+      }
+    }
+  }
+}
+
+[data-device='tiny'] {
+  #home-main-content {
+    > div {
+      &.right-side {
+        h1 {
+          font-size: 3em;
+        }
+
+        p {
+          font-size: 1.5em;
+        }
+
+        #development-carousel {
+          height: 1.5em;
+        }
+      }
+    }
+  }
+}
+
 @keyframes development-carousel {
-  0%, 16%, 99.001%, 100% {
+  0%,
+  16%,
+  99.001%,
+  100% {
     transform: translateY(0);
   }
-  32%, 50% {
+  32%,
+  50% {
     transform: translateY(-100%);
   }
-  66%, 83% {
+  66%,
+  83% {
     transform: translateY(-200%);
   }
   99% {

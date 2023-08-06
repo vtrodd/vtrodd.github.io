@@ -28,14 +28,19 @@ export const Root = () => {
 const NavLayout = () => {
   const {pathname} = useLocation();
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const isTiny = useMediaQuery('(max-width: 480px)');
+  const isSmall = useMediaQuery('(max-width: 600px)');
+
   const [theme, setTheme] = useLocalStorage<'dark' | 'light'>('theme', prefersDarkMode ? 'dark' : 'light');
 
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark');
   }
 
+  const device = isTiny ? 'tiny' : isSmall ? 'small' : '';
+
   return (
-    <div id='page-with-navbar' data-page={pathname} data-theme={theme}>
+    <div id='page-with-navbar' data-page={pathname} data-theme={theme} data-device={device}>
       <Navbar onToggleTheme={toggleTheme} />
       <Outlet />
     </div>

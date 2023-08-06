@@ -5,17 +5,25 @@ import './MainContentWrapper.scss';
 export const MainContentWrapper = () => {
   return (
     <div id='main-content-wrapper'>
-      <div className='main-content' data-page='/'>
+      <MainContentPrefab page='/'>
         <HomeMainContent />
-      </div>
+      </MainContentPrefab>
 
-      <div className='main-content' data-page='/now'>
+      <MainContentPrefab page='/now'>
         <NowMainContent />
-      </div>
+      </MainContentPrefab>
 
-      <div className='main-content' data-page='/gallery'>
+      <MainContentPrefab page='/gallery'>
 
-      </div>
+      </MainContentPrefab>
+    </div>
+  );
+}
+
+const MainContentPrefab = ({children, page}: {children: React.ReactNode, page: string}) => {
+  return (
+    <div className='main-content' data-page={page}>
+      {children}
     </div>
   );
 }
