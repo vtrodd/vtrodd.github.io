@@ -1,45 +1,43 @@
-import {BrowserRouter, Link, Routes, Route, Outlet} from 'react-router-dom';
-import {Hoverbomb} from '../../components/hoverbomb/Hoverbomb';
-import {Experiment} from '../Experiments/Experiment/Experiment';
-import {Experiments} from '../Experiments/Experiments';
+import {BrowserRouter, Routes, Route, Outlet, useLocation} from 'react-router-dom';
 import './Root.scss';
-import {Home} from '@mui/icons-material';
-import {Construction} from '../Construction/Construction';
+import {Navbar} from '../../components/navbar/Navbar';
+
+import '@fontsource/noto-sans/400.css';
+import '@fontsource/noto-sans/600.css';
+import {useLocalStorage, useMediaQuery} from 'usehooks-ts';
+import {Home} from '../Home/Home';
+import {Now} from '../Now/Now';
+
 
 export const Root = () => {
   return (
-    <>
-      <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
-
-        <Routes>
-          <Route element={<NavLayout />}>
-            <Route path='/home' element={<Home />} />
-            <Route path='about' element={<div>About Me</div>} />
-            <Route path='experiments' element={<Experiments />} />
-            <Route path='gallery' element={<div>Gallery</div>} />
-            <Route path='blog' element={<div>Blog</div>} />
+    <BrowserRouter basename={`/${process.env.PUBLIC_URL}`}>
+      <Routes>
+        <Route element={<NavLayout />}>
+          <Route element={<Home />}>
+            <Route path='*' />
           </Route>
-          <Route path='experiments/:keyedName' element={<Experiment />} />
-          <Route path='' element={<Construction />} />
-        </Routes>
-      </BrowserRouter>
-    </>
+          <Route path='now' element={<Now />} />
+          <Route path='gallery' />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
-const NavLayout = () => (
-  <>
-    <header>
-      <nav>
-        <ul>
-          <li><Link to='/'><Hoverbomb>Home</Hoverbomb></Link></li>
-          <li><Link to='/about'><Hoverbomb>About Me</Hoverbomb></Link></li>
-          <li><Link to='/experiments'><Hoverbomb>Experiments</Hoverbomb></Link></li>
-          <li><Link to='/gallery'><Hoverbomb>Gallery</Hoverbomb></Link></li>
-          <li><Link to='/blog'><Hoverbomb>Blog</Hoverbomb></Link></li>
-        </ul>
-      </nav>
-    </header>
-    <Outlet />
-  </>
-)
+const NavLayout = () => {
+  const {pathname} = useLocation();
+  const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
+  const [theme, setTheme] = useLocalStorage<'dark' | 'light'>('theme', prefersDarkMode ? 'dark' : 'light');
+
+  const toggleTheme = () => {
+    setTheme(theme === 'dark' ? 'light' : 'dark');
+  }
+
+  return (
+    <div id='page-with-navbar' data-page={pathname} data-theme={theme}>
+      <Navbar onToggleTheme={toggleTheme} />
+      <Outlet />
+    </div>
+  )
+}
