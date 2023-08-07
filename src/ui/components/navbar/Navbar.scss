@@ -1,12 +1,47 @@
+#navbar-background-colours {
+  position: absolute;
+  display: flex;
+  width: 300%;
+  height: 5em;
+  transition: all 0.5s ease-in-out, background-color 0.2s ease-in-out;
+  pointer-events: none;
+
+  &[data-page='/now'] {
+    transform: translateX(calc(-100% / 3));
+  }
+
+  &[data-page='/blog'] {
+    transform: translateX(calc(-200% / 3));
+  }
+
+  > span {
+    width: 100%;
+    height: 100%;
+
+
+    &[data-page='/'] {
+      background-color: var(--home);
+    }
+
+    &[data-page='/now'] {
+      background-color: var(--now);
+    }
+
+    &[data-page='/blog'] {
+      background-color: var(--blog);
+    }
+  }
+}
+
 #navbar {
   background: none !important;
   color: var(--background);
   padding: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 
   > header {
     position: fixed;
-    z-index: 3;
+    z-index: 2;
     display: flex;
     align-items: center;
     justify-content: space-between;

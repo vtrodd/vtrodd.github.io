@@ -3,7 +3,16 @@ import {NowMainContent} from '../../pages/Now/Now';
 import './MainContentWrapper.scss';
 
 export const MainContentWrapper = () => {
-  return (
+  return (<div id='test'>
+    <div id='main-content-background-colours'>
+      <div>
+        <div>
+          <span data-page='/' />
+          <span data-page='/now' />
+          <span data-page='/blog' />
+        </div>
+      </div>
+    </div>
     <div id='main-content-wrapper'>
       <MainContentPrefab page='/'>
         <HomeMainContent />
@@ -16,7 +25,8 @@ export const MainContentWrapper = () => {
       <MainContentPrefab page='/blog'>
 
       </MainContentPrefab>
-    </div>
+    </div >
+  </div>
   );
 }
 

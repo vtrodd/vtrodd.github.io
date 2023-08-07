@@ -13,6 +13,11 @@ export const Navbar = ({onToggleTheme}: NavbarProps) => {
 
   return (
     <div id='navbar'>
+      <div id='navbar-background-colours' data-page={pathname}>
+        <span data-page='/' />
+        <span data-page='/now' />
+        <span data-page='/blog' />
+      </div>
       <header>
         <nav>
           <Initials />
