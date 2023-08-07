@@ -1,0 +1,51 @@
+#initials {
+  height: 100%;
+  margin: auto;
+  aspect-ratio: 1;
+  display: flex;
+  place-content: center;
+
+  .initial {
+    margin: auto;
+    font-size: 2.5em;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    user-select: none;
+
+    &:hover {
+      transform: rotate(15deg) scale(1.1);
+    }
+  }
+
+  &[data-spinning='0'] .initial {
+    animation: spin-Y 0.2s ease-in-out infinite;
+  }
+
+  &[data-spinning='1'] .initial {
+    animation: spin-Z 0.3s linear infinite;
+  }
+}
+
+@keyframes spin-Y {
+  from {
+    transform: scaleX(1.2) scaleY(1.2);
+  }
+
+  50% {
+    transform: scaleX(-1.2) scaleY(1.2);
+  }
+
+  to {
+    transform: scaleX(1.2) scaleY(1.2);
+  }
+}
+
+@keyframes spin-Z {
+  from {
+    transform: scale(1.2) rotate(0deg);
+  }
+
+  to {
+    transform: scale(1.2) rotate(360deg);
+  }
+}
