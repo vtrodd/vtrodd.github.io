@@ -135,3 +135,25 @@
     }
   }
 }
+
+[data-device='tiny'] {
+  #navbar > header > nav {
+    ul {
+      grid-template-columns: repeat(3, auto);
+
+      > li > a {
+        padding: 0.49em;
+
+        &[data-active=true] {
+          padding-top: 2.5em;
+        }
+      }
+    }
+    #initials {
+      margin-right: 0;
+      .initial {
+        font-size: 2em;
+      }
+    }
+  }
+}
