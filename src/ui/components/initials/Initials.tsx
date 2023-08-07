@@ -16,7 +16,8 @@ export const Initials = () => {
     swapTimeout = setTimeout(() => setInitial(initial === 'V' ? 'T' : 'V'), 300)
     animTimeout = setTimeout(() => {
       ref.current?.removeAttribute('data-spinning')
-      setVariation(Math.floor(Math.random() * 2))
+      const newVariation = Math.floor(Math.random() * 3)
+      setVariation(newVariation === variation ? (newVariation + 1) % 3 : newVariation)
     }, 600)
   }
 
