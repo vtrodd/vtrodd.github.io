@@ -1,5 +1,6 @@
 import {HomeMainContent} from '../../pages/Home/Home';
 import {NowMainContent} from '../../pages/Now/Now';
+import {MouseFollowEffect} from '../mousefolloweffect/MouseFollowEffect';
 import './MainContentWrapper.scss';
 
 export const MainContentWrapper = () => {
@@ -26,6 +27,7 @@ export const MainContentWrapper = () => {
 
       </MainContentPrefab>
     </div >
+    <MouseFollowEffect />
   </div>
   );
 }
