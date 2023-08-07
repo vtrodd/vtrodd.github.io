@@ -57,7 +57,7 @@
               transition: all 0.2s ease-in-out;
             }
 
-            &:hover {
+            &:hover, &[data-active="true"] {
               &::after {
                 height: 2em;
               }
@@ -70,11 +70,6 @@
 
             &[data-active="true"] {
               cursor: default;
-              &::after {
-                height: 0;
-                background: var(--white);
-                opacity: 0.2;
-              }
             }
 
             &:not([data-active="true"]) {

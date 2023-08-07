@@ -9,7 +9,7 @@ export const ThemeButton = ({onClick}: ThemeButtonProps) => {
   return (
     <div id='theme-button' onClick={onClick}>
       <DarkMode data-hidden-in='dark' />
-      <LightMode data-hidden-in='light'/>
+      <LightMode data-hidden-in='light' />
     </div>
   )
 }

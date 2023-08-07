@@ -1,24 +1,5 @@
-[data-theme='dark'] {
-  #theme-button {
-    color: var(--brown);
-
-    &::after {
-      background: var(--brown);
-    }
-  }
-}
-
-[data-theme='light'] {
-  #theme-button {
-    color: var(--white);
-
-    &::after {
-      background: var(--white);
-    }
-  }
-}
-
 #theme-button {
+  color: var(--white);
   transition: all 0.2s ease-in-out;
   cursor: pointer;
   height: 100%;
@@ -26,12 +7,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   position: relative;
 
   &::after {
     position: absolute;
     content: '';
+    background: var(--white);
     left: 50%;
     top: 0;
     transform: translateX(-50%);
@@ -47,6 +28,14 @@
 
     &::after {
       height: 1.5em;
+    }
+
+    &[data-touch='true'] {
+      padding-top: 0;
+
+      &::after {
+        height: 0;
+      }
     }
   }
 }

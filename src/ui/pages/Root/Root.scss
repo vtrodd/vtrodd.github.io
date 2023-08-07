@@ -23,6 +23,11 @@ html {
   --background: var(--brown);
   --primary: var(--white);
 
+  --home: color-mix(in srgb, black, var(--green) 60%);
+  --now: color-mix(in srgb, black, var(--blue) 60%);
+  --gallery: color-mix(in srgb, black, var(--yellow) 60%);
+  --404: color-mix(in srgb, black, var(--red) 60%);
+
   [data-hidden-in='light'] {
     display: none;
   }
