@@ -15,7 +15,7 @@ html {
 
   --home: var(--green);
   --now: var(--blue);
-  --gallery: var(--yellow);
+  --blog: var(--yellow);
   --404: var(--red);
 }
 
@@ -25,7 +25,7 @@ html {
 
   --home: color-mix(in srgb, black, var(--green) 60%);
   --now: color-mix(in srgb, black, var(--blue) 60%);
-  --gallery: color-mix(in srgb, black, var(--yellow) 60%);
+  --blog: color-mix(in srgb, black, var(--yellow) 60%);
   --404: color-mix(in srgb, black, var(--red) 60%);
 
   [data-hidden-in='light'] {
@@ -50,8 +50,8 @@ html {
   --highlight: var(--now);
 }
 
-[data-page='/gallery'] {
-  --highlight: var(--gallery);
+[data-page='/blog'] {
+  --highlight: var(--blog);
 }
 
 body,

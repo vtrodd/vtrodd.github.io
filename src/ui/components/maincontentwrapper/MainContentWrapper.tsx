@@ -13,7 +13,7 @@ export const MainContentWrapper = () => {
         <NowMainContent />
       </MainContentPrefab>
 
-      <MainContentPrefab page='/gallery'>
+      <MainContentPrefab page='/blog'>
 
       </MainContentPrefab>
     </div>

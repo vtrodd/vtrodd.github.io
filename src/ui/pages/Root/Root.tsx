@@ -18,7 +18,7 @@ export const Root = () => {
             <Route path='*' />
           </Route>
           <Route path='now' element={<Now />} />
-          <Route path='gallery' />
+          <Route path='blog' />
         </Route>
       </Routes>
     </BrowserRouter>

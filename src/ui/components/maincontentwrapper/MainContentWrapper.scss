@@ -43,10 +43,10 @@
       }
     }
 
-    &[data-page='/gallery'] {
-      background-color: var(--gallery);
+    &[data-page='/blog'] {
+      background-color: var(--blog);
       &::after {
-        background: var(--gallery);
+        background: var(--blog);
       }
     }
   }
@@ -58,7 +58,7 @@
   }
 }
 
-[data-page='/gallery'] {
+[data-page='/blog'] {
   #main-content-wrapper {
     transform: translateX(calc(-200% / 3));
   }

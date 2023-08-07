@@ -88,8 +88,8 @@
                 background: var(--now);
               }
 
-              &[data-to="/gallery"]::after {
-                background: var(--gallery);
+              &[data-to="/blog"]::after {
+                background: var(--blog);
               }
             }
           }

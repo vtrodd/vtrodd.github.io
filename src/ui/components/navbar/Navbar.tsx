@@ -19,7 +19,7 @@ export const Navbar = ({onToggleTheme}: NavbarProps) => {
           <ul>
             <li><LinkPrefab to='/' pathname={pathname}>Home</LinkPrefab></li>
             <li><LinkPrefab to='/now' pathname={pathname}>Now</LinkPrefab></li>
-            {/* <li><LinkPrefab to='/gallery' pathname={pathname}>Gallery</LinkPrefab></li> */}
+            <li><LinkPrefab to='/blog' pathname={pathname}>Blog</LinkPrefab></li>
           </ul>
         </nav>
 
