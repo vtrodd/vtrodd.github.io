@@ -1,13 +1,41 @@
+@property --p {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+}
+
 .mouse-follow-effect {
+  --mouseeffectcolor: color-mix(in srgb, transparent, var(--background) 50%);
   position: absolute;
-  width: 80px;
-  height: 80px;
+  width: 70px;
+  height: 70px;
+  top: 40px;
+  left: 40px;
   border-radius: 50%;
   transform: translate(-50%, -50%);
-  border: 3px dashed color-mix(in srgb, transparent, var(--background) 50%);
+  border: 3px dashed var(--mouseeffectcolor);
   z-index: 0;
   animation: spin 8s linear infinite;
   pointer-events: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: -1;
+  }
+
+  &[data-clicked='true'] {
+    &::after {
+      background: radial-gradient(transparent calc(var(--p) - 20%), var(--mouseeffectcolor) var(--p), transparent calc(var(--p) + 20%));
+      animation: pulse 0.5s linear infinite;
+    }
+  }
 }
 
 @keyframes spin {
@@ -17,5 +45,19 @@
 
   to {
     transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  from {
+    --p:0%;
+  }
+
+  50% {
+    --p:70%;
+  }
+
+  to {
+    --p:90%;
   }
 }

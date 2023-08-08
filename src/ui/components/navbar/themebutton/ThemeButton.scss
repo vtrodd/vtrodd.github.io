@@ -53,15 +53,11 @@
 
 @keyframes moon-glow {
   from {
-    // box-shadow: inset 0 0 0.5em 1em var(--themebuttonblur), 0 0 0.5em 0.5em var(--themebuttonblur);
-    // --themebuttonblur: color-mix(in srgb, black, var(--white) 60%);
     opacity: 0.5;
     transform: scale(1);
   }
 
   to {
-    // box-shadow: inset 0 0 0.5em 1em var(--themebuttonblur), 0 0 0.5em 2em var(--themebuttonblur);
-    // --lightordark: color-mix(in srgb, black, var(--brown) 80%);
     opacity: 1;
     transform: scale(1.5);
   }
