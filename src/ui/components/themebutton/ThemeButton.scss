@@ -1,0 +1,75 @@
+#theme-button {
+  --themebuttoncolor: var(--background);
+  color: var(--themebuttoncolor);
+
+  height: 100%;
+  aspect-ratio: 1;
+  
+  margin-left: auto;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: none;
+  background: none;
+  padding: 0;
+
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &::before {
+    content: '';
+    height: 0;
+    width: 60%;
+
+    position: absolute;
+    top: 0;
+
+    border-radius: 0 0 2px 2px;
+
+    background-color: var(--themebuttoncolor);
+    transition: all 0.2s ease-in-out;
+  }
+
+  &:hover {
+    padding-top: 1em;
+    &::before {
+      height: 1em;
+    }
+  }
+}
+
+[data-theme='dark'] #theme-button {
+  --themebuttoncolor: color-mix(in srgb, black, var(--primary) 60%);
+  --themebuttonblur: color-mix(in srgb, transparent, var(--themebuttoncolor) 30%);
+
+  &::after {
+    content: '';
+
+    width: 1em;
+    height: 1em;
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    box-shadow:
+      inset 0 0 0 1em var(--themebuttonblur),
+      0 0 0.5em 0.5em var(--themebuttonblur);
+    animation: moon-glow 4s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes moon-glow {
+  from {
+    opacity: 1;
+    transform: scale(.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+}

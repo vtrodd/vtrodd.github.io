@@ -1,0 +1,41 @@
+:root {
+  --COLOR-white: #f8fce6;
+  --COLOR-brown: #171413;
+  --COLOR-green: #688958;
+  --COLOR-blue: #467599;
+  --COLOR-yellow: #f6bd60;
+  --COLOR-red: #d1634d;
+
+  --green: var(--COLOR-green);
+  --blue: var(--COLOR-blue);
+  --yellow: var(--COLOR-yellow);
+  --red: var(--COLOR-red);
+
+  
+  --background: var(--COLOR-white);
+  --primary: var(--COLOR-brown);
+  --highlight: var(--green);
+
+  --theme-transition-duration: 0.2s;
+}
+
+[data-theme='dark'] {
+  --green: color-mix(in srgb, black, var(--COLOR-green) 60%);
+  --blue: color-mix(in srgb, black, var(--COLOR-blue) 60%);
+  --yellow: color-mix(in srgb, black, var(--COLOR-yellow) 60%);
+  --red: color-mix(in srgb, black, var(--COLOR-red) 60%);
+
+  --background: var(--COLOR-brown);
+  --primary: var(--COLOR-white);
+  --highlight: var(--green);
+
+  [data-hidden-in='light'] {
+    display: none;
+  }
+}
+
+[data-theme='light'] {
+  [data-hidden-in='dark'] {
+    display: none;
+  }
+}

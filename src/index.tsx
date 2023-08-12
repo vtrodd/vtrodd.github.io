@@ -1,11 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import reportWebVitals from './reportWebVitals'
-import { Root } from './ui/pages'
+import {Main} from './ui'
 
 ReactDOM.render(
   <React.StrictMode>
-    <Root />
+    <Main />
   </React.StrictMode>,
   document.getElementById('root')
 )

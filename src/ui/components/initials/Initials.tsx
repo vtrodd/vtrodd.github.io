@@ -1,4 +1,4 @@
-import {MouseEventHandler, useRef, useState} from "react"
+import {MouseEventHandler, useRef, useState} from 'react'
 import './Initials.scss'
 
 let swapTimeout: NodeJS.Timeout,
@@ -7,7 +7,7 @@ let swapTimeout: NodeJS.Timeout,
 export const Initials = () => {
   const [initial, setInitial] = useState('V')
   const [variation, setVariation] = useState(0)
-  const ref = useRef<HTMLDivElement>(null)
+  const ref = useRef<HTMLButtonElement>(null)
 
   const restartTimeouts = () => {
     clearTimeout(swapTimeout)
@@ -27,8 +27,8 @@ export const Initials = () => {
   }
 
   return (
-    <div id='initials' ref={ref} onClick={onClick}>
-      <h1 className='initial'>{initial}</h1>
-    </div>
+    <button id='initials' ref={ref} onClick={onClick}>
+      <h1 aria-hidden className='initial'>{initial}</h1>
+    </button>
   )
 }

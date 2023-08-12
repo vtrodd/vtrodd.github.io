@@ -1,0 +1,57 @@
+#home-highlight {
+  font-family: 'Noto Sans Mono', monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+
+  > .image-highlight > img {
+    background-image: url('me-low.jpg');
+  }
+
+  > .right-highlight {
+    text-align: right;
+
+    > #development-carousel {
+      height: 2em;
+      line-height: 1;
+      overflow-y: hidden;
+
+      display: flex;
+      justify-content: flex-end;
+
+      > #carousel {
+        @keyframes dev-carousel {
+          0%,
+          16%,
+          99.001%,
+          100% {
+            transform: translateY(0);
+          }
+          32%,
+          50% {
+            transform: translateY(-100%);
+          }
+          66%,
+          83% {
+            transform: translateY(-200%);
+          }
+          99% {
+            transform: translateY(-300%);
+          }
+        }
+
+        transform: translateY(0);
+        animation: dev-carousel 5s linear infinite;
+
+        &:hover {
+          animation-play-state: paused;
+        }
+      }
+    }
+  }
+}
+
+@container page-carousel-container (max-width: 609px) {
+  #home-highlight {
+    justify-content: flex-end;
+  }
+}

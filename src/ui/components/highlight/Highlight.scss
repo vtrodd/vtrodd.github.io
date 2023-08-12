@@ -1,0 +1,101 @@
+.highlight-wrapper {
+  width: 100%;
+
+  background-color: var(--highlight-background-colour);
+  color: var(--COLOR-white);
+
+  transition: background-color var(--theme-transition-duration) ease;
+
+  > .highlight-container {
+    > [id$='-highlight'] {
+      margin: 0 1em 2em 1em;
+
+      display: flex;
+      justify-content: space-between;
+
+      > .left-highlight {
+        order: 0;
+      }
+
+      > .right-highlight {
+        order: 1;
+      }
+
+      > .image-highlight {
+        flex-basis: 35%;
+        height: min-content;
+        transition: all 0.25s ease-in-out;
+        line-height: 0;
+        font-size: 0.8em;
+
+        &.left-highlight {
+          clip-path: polygon(0 0, calc(100% - 6em) 0, 100% 6em, 100% 100%, 6em 100%, 0 calc(100% - 6em));
+          &:hover {
+            clip-path: polygon(0 0, 100% 0, 100% 0, 100% 100%, 0 100%, 0 100%);
+          }
+        }
+
+        &.right-highlight {
+          clip-path: polygon(6em 0, 100% 0, 100% calc(100% - 6em), calc(100% - 6em) 100%, 0 100%, 0 6em);
+          &:hover {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 100%, 0 100%, 0 0);
+          }
+        }
+
+        > img {
+          width: 100%;
+        }
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      > .text-highlight {
+        transition: font-size 0.5s ease-in-out;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          margin: 0;
+        }
+
+        h1 {
+          font-size: 4.5em;
+        }
+
+        h2 {
+          font-size: 2em;
+        }
+      }
+    }
+  }
+}
+
+@container page-carousel-container (max-width: 609px) {
+  .image-highlight {
+    display: none;
+  }
+}
+
+@container page-carousel-container (min-width: 610px) {
+  .text-highlight {
+    h1 {
+      white-space: nowrap;
+    }
+  }
+}
+
+@container page-carousel-container (max-width: 400px) {
+  .text-highlight {
+    font-size: 0.75em;
+  }
+}
+
+@container page-carousel-container (max-width: 300px) {
+  .text-highlight {
+    font-size: 0.5em;
+  }
+}

@@ -1,0 +1,25 @@
+.content-wrapper {
+  width: 100%;
+  height: min-content;
+
+  &[aria-hidden='true'] > .content-container {
+    animation: wipe-out 0.5s ease-in-out forwards;
+  }
+
+  > .content-container {
+    width: 100%;
+
+    > [id$='-content'] {
+      margin: 1em 1em 2em 1em;
+    }
+  }
+}
+
+@keyframes wipe-out {
+  from, 99% {
+  }
+
+  to {
+    display: none;
+  }
+}

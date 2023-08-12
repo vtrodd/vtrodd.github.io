@@ -1,0 +1,32 @@
+#now-highlight {
+  h1 {
+    font-family: 'Noto Sans Mono', monospace;
+  }
+
+  a {
+    transition: color 0.2s ease-in-out;
+    &:hover {
+      color: var(--COLOR-red);
+    }
+  }
+
+  #update {
+    margin-top: 0.5em;
+  }
+
+  ul {
+    margin: 0 0 0.5em 0;
+    padding-left: 0.25em;
+    list-style-type: none;
+    > li {
+      &:before {
+        content: '>';
+        margin-right: 0.25em;
+      }
+    }
+  }
+
+  > .image-highlight > img {
+    background-image: url('grad-low.jpg');
+  }
+}
