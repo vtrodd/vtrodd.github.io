@@ -24,3 +24,4 @@ yarn-error.log*
 
 # file download locations
 /src/downloads.json
+/src/token.ts
