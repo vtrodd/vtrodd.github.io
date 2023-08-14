@@ -39,7 +39,7 @@ export const useBlogPost = (year?: string, month?: string, day?: string) => {
             setLoading(false)
           })
       })
-  }, [tree, year, month, day])
+  }, [tree, year, month, day, stored, setStored])
 
 
   return [post, loading] as [BlogPost | undefined, boolean]
