@@ -1,14 +1,11 @@
-import {useLocation} from 'react-router-dom'
 import {Navbar, Initials, ThemeButton} from '..'
 import {Pages} from '../..'
 import './Header.scss'
+import {usePath} from '../../../hooks/usePath'
 
 
 export const Header = () => {
-  const {pathname} = useLocation()
-  const path = pathname.substring(1)
-
-  const pageIndex = Pages.findIndex(page => page.path === path)
+  const [, pageIndex] = usePath()
   let translateX = pageIndex * 100
 
   return (

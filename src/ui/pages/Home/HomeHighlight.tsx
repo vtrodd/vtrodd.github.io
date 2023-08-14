@@ -4,7 +4,7 @@ import meImg from './me.jpg'
 export const HomeHighlight = () =>
   <>
     <div className='left-highlight image-highlight'>
-      <img src={meImg} alt='A picture of Vic Trodd' />
+      <img src={meImg} alt='Vic Trodd' />
     </div>
 
     <div className='right-highlight text-highlight'>

@@ -1,6 +1,7 @@
 import {useEffect, useState} from 'react'
 import {useBlogRepoContents} from './useBlogRepoContents'
 import token from '../token'
+import {useSessionStorage} from 'usehooks-ts'
 
 type GitTreeResponse = {
   path: string
@@ -20,10 +21,17 @@ export type GitTreeNode = {
 
 export const useBlogRepoTree = () => {
   const contents = useBlogRepoContents()
+  const [stored, setStored] = useSessionStorage<GitTreeNode[]>('blogrepotree', [])
   const [tree, setTree] = useState<GitTreeNode[]>([])
 
   useEffect(() => {
     if (!contents.length) return
+
+    if (stored.length) {
+      setTree(stored)
+      return
+    }
+
     fetch(contents[0]._links.git + '?recursive=1', {
       headers: {
         'Authorization': `token ${token}`
@@ -65,10 +73,10 @@ export const useBlogRepoTree = () => {
             })
 
             setTree(nestedTree)
-            
+            setStored(nestedTree)
           })
       })
-  }, [contents])
+  }, [contents, setStored, stored])
 
   return tree
 }

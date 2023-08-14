@@ -35,7 +35,7 @@ export const NowHighlight = () => {
         </div>
       </div>
       <div className='right-highlight image-highlight'>
-        <img src={grad} alt='A picture of Vic on the day of his graduation' />
+        <img src={grad} alt='Vic on the day of his graduation' />
       </div>
     </>
   )

@@ -1,5 +1,5 @@
-import {useLocation} from 'react-router-dom'
 import {Page, Pages} from '../../pages/Pages'
+import {usePath} from '../../../hooks/usePath'
 
 import './PageCarousel.scss'
 
@@ -8,16 +8,13 @@ export type PageCarouselProps = {
 }
 
 export const PageCarousel = ({element}: PageCarouselProps) => {
-  const {pathname} = useLocation()
-  const currentPath = pathname.substring(1)
-
-  const pageIndex = Pages.findIndex(page => page.path === currentPath)
+  const [path, pageIndex] = usePath()
   let translateX = pageIndex * 100
 
   return (
     <div className='page-carousel-container'>
       <div className='page-carousel' style={{transform: `translateX(-${translateX}%)`}}>
-        {Pages.map(page => element(page, currentPath))}
+        {Pages.map(page => element(page, path[0]))}
       </div>
     </div>
   )
