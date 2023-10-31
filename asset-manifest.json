@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "/static/css/main.98fa1367.css",
-    "main.js": "/static/js/main.9b173813.js",
+    "main.css": "/static/css/main.bb2ea29d.css",
+    "main.js": "/static/js/main.baee54ce.js",
     "static/js/787.edd59a96.chunk.js": "/static/js/787.edd59a96.chunk.js",
     "static/media/me.jpg": "/static/media/me.e02f556e696b61e7f940.jpg",
     "static/media/grad.jpg": "/static/media/grad.510b7bf8c433c58fa179.jpg",
+    "static/media/skele.jpg": "/static/media/skele.3446fb81d70d7304ac84.jpg",
     "static/media/me-low.jpg": "/static/media/me-low.3d43cc4eea1170dc93a1.jpg",
-    "static/media/grad-low.jpg": "/static/media/grad-low.478e13056ef2e8474959.jpg",
     "static/media/noto-sans-devanagari-600-normal.woff": "/static/media/noto-sans-devanagari-600-normal.0b1a1f1f394d62545111.woff",
     "static/media/noto-sans-devanagari-400-normal.woff": "/static/media/noto-sans-devanagari-400-normal.9ecc9ba0fbe6be5443a7.woff",
     "static/media/noto-sans-mono-latin-ext-700-normal.woff": "/static/media/noto-sans-mono-latin-ext-700-normal.29a88a686d47e07e64ff.woff",
@@ -68,12 +68,12 @@
     "static/media/noto-sans-mono-vietnamese-700-normal.woff2": "/static/media/noto-sans-mono-vietnamese-700-normal.d8ebb1ebd7762449ff06.woff2",
     "static/media/noto-sans-mono-vietnamese-400-normal.woff2": "/static/media/noto-sans-mono-vietnamese-400-normal.b9f8695a8bc0b86795d9.woff2",
     "index.html": "/index.html",
-    "main.98fa1367.css.map": "/static/css/main.98fa1367.css.map",
-    "main.9b173813.js.map": "/static/js/main.9b173813.js.map",
+    "main.bb2ea29d.css.map": "/static/css/main.bb2ea29d.css.map",
+    "main.baee54ce.js.map": "/static/js/main.baee54ce.js.map",
     "787.edd59a96.chunk.js.map": "/static/js/787.edd59a96.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.98fa1367.css",
-    "static/js/main.9b173813.js"
+    "static/css/main.bb2ea29d.css",
+    "static/js/main.baee54ce.js"
   ]
 }
