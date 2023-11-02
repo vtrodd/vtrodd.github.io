@@ -9,13 +9,14 @@ body,
   background-color: var(--background);
   color: var(--primary);
 
-  transition: background-color var(--theme-transition-duration) ease-in-out, color var(--theme-transition-duration) ease-in-out;
-}
+  transition:
+    background-color var(--theme-transition-duration) ease-in-out,
+    color var(--theme-transition-duration) ease-in-out;
 
-#sliding-background-wrapper {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 100%;
+  &.preload, &.preload * {
+    transition: none;
+    display: none;
+  }
 }
 
 a {
