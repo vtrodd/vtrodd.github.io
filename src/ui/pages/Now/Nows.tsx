@@ -7,7 +7,6 @@ export const Nows = [
     content: <>
     <h4>/life</h4>
           <ul>
-            <li><i>I graduated from the University of York</i></li>
             <li><i>I officially start my new job at CERN tomorrow!</i></li>
             <li><i>I haven't found somewhere to live yet so I'm staying in a hostel</i> 😭</li>
           </ul>

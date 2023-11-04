@@ -19,7 +19,7 @@ export const NowHighlight = () => {
         </div>
       </div>
       <div className='right-highlight image-highlight'>
-        <img src={now.image} alt={now.imageAlt} />
+        <img src={now.image} alt={now.imageAlt} title={now.imageAlt} />
       </div>
     </>
   )

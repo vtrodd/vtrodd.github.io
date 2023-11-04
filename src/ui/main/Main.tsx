@@ -30,8 +30,8 @@ const PageWrapper = ({children}: {children: React.ReactNode}) => {
 
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)')
   const [theme, setTheme] = useLocalStorage<'dark' | 'light'>('theme', prefersDarkMode ? 'dark' : 'light')
-  useEffect(() => setTheme(theme), [prefersDarkMode])
   useEffect(() => document.getElementById('root')?.setAttribute('data-theme', theme), [theme])
+  useEffect(() => setTheme(document.getElementById('root')?.getAttribute('data-theme') as 'dark' | 'light'), [prefersDarkMode, setTheme])
 
   return (
     <div id='page-wrapper' data-page={pathname.substring(1)}>
