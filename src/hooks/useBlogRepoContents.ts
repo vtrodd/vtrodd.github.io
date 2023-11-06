@@ -3,6 +3,8 @@ import token from '../token'
 import {useSessionStorage} from 'usehooks-ts'
 
 type GitContentsResponse = {
+  name: string
+  path: string
   _links: {
     git: string
   }
@@ -19,13 +21,14 @@ export const useBlogRepoContents = () => {
     }
 
     fetch('https://api.github.com/repos/vtrodd/blogposts/contents', {
-      headers: {
-        'Authorization': `token ${token}`
-      }
+      // headers: {
+      //   'Authorization': `token ${token}`
+      // }
     })
       .then(res => {
         res.json()
           .then(json => {
+            console.log(json)
             setStored(json)
             setContents(json)
           })

@@ -1,12 +1,15 @@
 import {Link, Route, Routes} from 'react-router-dom'
 import {GitTreeNode, useBlogRepoTree} from '../../../hooks/useBlogRepoTree'
-import {BlogPost} from '../../components/blogpost/BlogPost'
+import {BlogPost} from './blogpost/BlogPost'
+import {BlogListItem} from './bloglistitem/BlogListItem'
+
+import './BlogContent.scss'
 
 export const BlogContent = () => {
   return (
     <Routes>
-      <Route path='blog' element={<BlogContentInner/>}/>
-      <Route path='blog/:year/:month/:day' element={<BlogPost />}/>
+      <Route path='blog' element={<BlogContentInner />} />
+      <Route path='blog/:year/:month/:day' element={<BlogPost />} />
     </Routes>
   )
 }
@@ -17,37 +20,24 @@ const BlogContentInner = () => {
 
 
   return (
-    <div className='blog-content'>
-      <div className='blog-content__inner'>
-        <div className='blog-content__inner__content'>
-          <div className='blog-content__inner__content__title'>
-            <h1>Blog</h1>
-          </div>
-          <div className='blog-content__inner__content__posts'>
-            <ul>
-              {tree.map(convertTreeNodeToListElement)}
-            </ul>
-          </div>
-        </div>
-      </div>
+    <div id='blog-content'>
+      <ul>
+        {tree.map(convertTreeNodeToListElement)}
+      </ul>
     </div>
   )
 }
 
-const convertTreeNodeToListElement = (treeNode: GitTreeNode) => {
+const convertTreeNodeToListElement = (treeNode: GitTreeNode): React.ReactNode => {
+  // first we need to sort them by most recent year, month, day
+  treeNode.children.sort((a, b) => (a.name > b.name) ? -1 : ((b.name > a.name) ? 1 : 0))
+
   if (treeNode.meta.type === 'tree') {
-    return (
-      <li key={treeNode.meta.path}>
-        <h2>{treeNode.name}</h2>
-        <ul>
-          {treeNode.children.map(child => convertTreeNodeToListElement(child))}
-        </ul>
-      </li>
-    )
+    return treeNode.children.map(child => convertTreeNodeToListElement(child))
   } else {
     return (
       <li key={treeNode.meta.path}>
-        <Link to={treeNode.meta.path}>{treeNode.name}</Link>
+        <BlogListItem treeNode={treeNode} />
       </li>
     )
   }

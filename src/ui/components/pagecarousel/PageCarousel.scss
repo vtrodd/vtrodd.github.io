@@ -14,4 +14,13 @@
       margin: 0 auto;
     }
   }
+
+  &.for-highlights {
+    transition: max-height 0.5s ease;
+    max-height: 1000px;
+
+    &.minimised {
+      max-height: 0;
+    }
+  }
 }

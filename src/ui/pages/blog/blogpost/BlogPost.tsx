@@ -1,6 +1,8 @@
 import {useParams} from 'react-router-dom'
-import {useBlogPost} from '../../../hooks/useBlogPost'
+import {useBlogPost} from '../../../../hooks/useBlogPost'
 import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
+import './BlogPost.scss'
 
 export const BlogPost = () => {
   const {year, month, day} = useParams()
@@ -12,7 +14,7 @@ export const BlogPost = () => {
   return (
     <div className="blog-post">
       <h1>{post.title}</h1>
-      <ReactMarkdown children={post.content} />
+      <ReactMarkdown remarkPlugins={[remarkGfm]} children={post.content}  />
     </div>
   )
 }

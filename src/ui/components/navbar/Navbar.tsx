@@ -14,7 +14,7 @@ export const Navbar = () => {
 
 const NavItem = (page: Page) => {
   const {pathname} = useLocation()
-  const path = pathname.substring(1)
+  const path = pathname.split('/')[1]
 
   return (
     <li key={page.path} data-active={path === page.path} data-page={page.path}>

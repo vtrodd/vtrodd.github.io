@@ -2,7 +2,7 @@ import {Page} from '../..'
 import {PageCarousel} from '..'
 import './Highlight.scss'
 
-export const Highlight = () => <PageCarousel element={HighlightPrefab} />
+export const Highlight = () => <PageCarousel element={HighlightPrefab} className='for-highlights' />
 
 const HighlightPrefab = (page: Page, currentPath: string) =>
   <div

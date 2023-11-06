@@ -1,0 +1,21 @@
+.blog-list-item {
+  display: flex;
+  align-items: center;
+
+  &:before {
+    content: '🔗';
+    padding-right: 0.5rem;
+  }
+
+  h3 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+  }
+
+  p {
+    margin: 0;
+    padding: 0;
+    font-size: 1.2rem;
+  }
+}

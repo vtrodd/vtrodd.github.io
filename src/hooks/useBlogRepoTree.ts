@@ -32,10 +32,13 @@ export const useBlogRepoTree = () => {
       return
     }
 
-    fetch(contents[0]._links.git + '?recursive=1', {
-      headers: {
-        'Authorization': `token ${token}`
-      }
+    const dir = contents.find(dir => dir.path === 'posts')
+    if (!dir) return
+
+    fetch(dir._links.git + '?recursive=1', {
+      // headers: {
+      //   'Authorization': `token ${token}`
+      // }
     })
       .then(res => {
         res.json()

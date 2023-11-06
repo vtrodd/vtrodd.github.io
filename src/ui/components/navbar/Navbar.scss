@@ -28,6 +28,7 @@ nav {
         justify-content: center;
 
         font-weight: bold;
+        text-align: center;
         transition: margin-top 0.2s ease-in-out;
 
         &::before {
@@ -46,7 +47,7 @@ nav {
 
       &[data-active='true'] {
         > a {
-          cursor: default;
+          // cursor: default;
           margin-top: 2em;
         }
       }

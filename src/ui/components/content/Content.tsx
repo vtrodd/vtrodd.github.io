@@ -2,7 +2,7 @@ import {Page} from '../..'
 import {PageCarousel} from '..'
 import './Content.scss'
 
-export const Content = () => <PageCarousel element={ContentPrefab} />
+export const Content = () => <PageCarousel element={ContentPrefab} className='for-content' />
 
 const ContentPrefab = (page: Page, currentPath: string) =>
   <div
