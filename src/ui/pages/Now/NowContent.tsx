@@ -5,7 +5,7 @@ export const NowContent = () => {
   const oldNows = Nows.slice(1)
   return (
     <>
-      {oldNows.sort((a, b) => a.date.getTime() - b.date.getTime()).map((now, i) => {
+      {oldNows.sort((a, b) => b.date.getTime() - a.date.getTime()).map((now, i) => {
         const order = i % 2 === 0
         return (
           <div key={now.date.toString()} className='update'>
