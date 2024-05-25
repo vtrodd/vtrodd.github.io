@@ -11,7 +11,7 @@ export type PageCarouselProps = {
 export const PageCarousel = ({element, className}: PageCarouselProps) => {
   const [path, pageIndex] = usePath()
   let translateX = pageIndex * 100
-  const classes = (path.length > 1) ? 'minimised' : ''
+  const classes = (path[0] === 'blog' && path.length > 1) ? 'minimised' : ''
 
   return (
     <div className={`page-carousel-container ${className} ${classes}`}>

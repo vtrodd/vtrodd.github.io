@@ -34,7 +34,7 @@ const PageWrapper = ({children}: {children: React.ReactNode}) => {
   useEffect(() => setTheme(document.getElementById('root')?.getAttribute('data-theme') as 'dark' | 'light'), [prefersDarkMode, setTheme])
 
   return (
-    <div id='page-wrapper' data-page={pathname.substring(1)}>
+    <div id='page-wrapper' data-page={pathname.split('/')[1]}>
       {children}
     </div>
   )

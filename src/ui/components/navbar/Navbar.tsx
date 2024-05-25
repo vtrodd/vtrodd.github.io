@@ -6,7 +6,7 @@ export const Navbar = () => {
   return (
     <nav>
       <ul>
-        {Pages.map(NavItem)}
+        {Pages.slice(0, -1).map(NavItem)}
       </ul>
     </nav>
   )

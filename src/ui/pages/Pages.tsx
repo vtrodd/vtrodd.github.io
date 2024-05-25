@@ -1,4 +1,5 @@
 import {BlogContent, BlogHighlight} from './blog'
+import {DownloadHighlight} from './download/DownloadHighlight'
 import {HomeContent, HomeHighlight} from './home'
 import {NowContent, NowHighlight} from './now'
 
@@ -31,6 +32,13 @@ export const Pages: Page[] = [
     colour: 'yellow',
     highlight: BlogHighlight,
     content: BlogContent
+  },
+  {
+    name: 'download',
+    path: 'download',
+    colour: 'purple',
+    highlight: DownloadHighlight,
+    content: () => <></>
   }
 ]
 

@@ -5,11 +5,13 @@
   --COLOR-blue: #467599;
   --COLOR-yellow: #f6bd60;
   --COLOR-red: #d1634d;
+  --COLOR-purple: #50089c;
 
   --green: var(--COLOR-green);
   --blue: var(--COLOR-blue);
   --yellow: var(--COLOR-yellow);
   --red: var(--COLOR-red);
+  --purple: var(--COLOR-purple);
 
   
   --background: var(--COLOR-white);
@@ -24,6 +26,7 @@
   --blue: color-mix(in srgb, black, var(--COLOR-blue) 60%);
   --yellow: color-mix(in srgb, black, var(--COLOR-yellow) 60%);
   --red: color-mix(in srgb, black, var(--COLOR-red) 60%);
+  --purple: color-mix(in srgb, black, var(--COLOR-purple) 60%);
 
   --background: var(--COLOR-brown);
   --primary: var(--COLOR-white);
