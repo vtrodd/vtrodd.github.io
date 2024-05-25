@@ -6,16 +6,14 @@ import './BlogListItem.scss'
 export const BlogListItem = ({treeNode}: {treeNode: GitTreeNode}) => {
   const [year, month, day] = treeNode.meta.path.split('/')
   const [blogpost, loading] = useBlogPost(year, month, day.slice(0, -3))
-  console.log(blogpost)
-
-  if (!blogpost || loading) return <>test</>
+  const loaded = blogpost && !loading;
 
   const date = new Date(treeNode.meta.path.slice(0, -3))
 
   return (
     <Link to={treeNode.meta.path.slice(0, -3)} className='blog-list-item'>
       <div>
-        <h3>{blogpost.title}</h3>
+        <h3>{loaded ? blogpost?.title : 'Loading...'}</h3>
         <p><i>{days[date.getDay()]}, {ordinal(date.getDate())} {months[date.getMonth()]} {date.getFullYear()}</i></p>
       </div>
     </Link>
