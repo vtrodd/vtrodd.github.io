@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.f344fc7f.css",
-    "main.js": "/static/js/main.e65e1252.js",
+    "main.js": "/static/js/main.a2dbb13b.js",
     "static/js/787.d4aba7ab.chunk.js": "/static/js/787.d4aba7ab.chunk.js",
     "static/media/orchestra.jpg": "/static/media/orchestra.f86651cdc7785a2174b0.jpg",
     "static/media/me.jpg": "/static/media/me.e02f556e696b61e7f940.jpg",
@@ -70,11 +70,11 @@
     "static/media/noto-sans-mono-vietnamese-700-normal.woff2": "/static/media/noto-sans-mono-vietnamese-700-normal.f8961892ee947d1da69c.woff2",
     "index.html": "/index.html",
     "main.f344fc7f.css.map": "/static/css/main.f344fc7f.css.map",
-    "main.e65e1252.js.map": "/static/js/main.e65e1252.js.map",
+    "main.a2dbb13b.js.map": "/static/js/main.a2dbb13b.js.map",
     "787.d4aba7ab.chunk.js.map": "/static/js/787.d4aba7ab.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f344fc7f.css",
-    "static/js/main.e65e1252.js"
+    "static/js/main.a2dbb13b.js"
   ]
 }
