@@ -1,6 +1,7 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import Switch from "../svgs/switch.svg";
+import MetaImage from "../images/metaImage.jpg";
 
 interface Props {
   title: string;
@@ -42,7 +43,7 @@ import "../styles/global.scss";
     <meta name="description" content={description} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/assets/metaImage.jpg" />
+    <meta property="og:image" content={MetaImage.src} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
   </head>

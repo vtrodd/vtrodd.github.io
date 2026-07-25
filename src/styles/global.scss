@@ -333,12 +333,17 @@ section.highlight-section {
   container-type: inline-size;
 
   @container highlight (max-width: 609px) {
-    .image-highlight {
-      opacity: 0;
+    .highlight {
+      flex-direction: column-reverse;
+      justify-content: start;
     }
 
-    .text-highlight {
-      font-size: min(1em, 2vw);
+    .left-highlight {
+      width: 50%;
+    }
+
+    .right-highlight {
+      margin-left: auto;
     }
   }
 }
