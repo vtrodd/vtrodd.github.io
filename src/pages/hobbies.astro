@@ -77,19 +77,26 @@ import TheHotelAvocadoBookCover from "../images/hotel-avocado.jpg";
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen
-                loading="lazy"
-              ></iframe>
+                loading="lazy"></iframe>
             </div>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
               <defs>
                 <mask id="tvBodyMask">
                   <rect width="48" height="46" fill="white"></rect>
-                  <rect x="4" y="4" width="40" height="30" rx="20" ry="1" fill="black"></rect>
+                  <rect
+                    x="4"
+                    y="4"
+                    width="40"
+                    height="30"
+                    rx="20"
+                    ry="1"
+                    fill="black"></rect>
                 </mask>
                 <mask id="gridMask">
                   <rect width="100%" height="46" fill="white"></rect>
                   <rect width="100%" height="36" fill="black"></rect>
-                  <rect x="10" y="36" width="28" height="10" fill="black"></rect>
+                  <rect x="10" y="36" width="28" height="10" fill="black"
+                  ></rect>
                 </mask>
 
                 <pattern
@@ -113,13 +120,14 @@ import TheHotelAvocadoBookCover from "../images/hotel-avocado.jpg";
                 rx="4"
                 ry="8"
                 fill="#252525"
-                mask="url(#tvBodyMask)"></rect>
+                mask="url(#tvBodyMask)"
+                pointer-events="none"></rect>
               <rect
                 x="4"
                 y="4"
                 width="40"
                 height="30"
-                fill="none"
+                fill="#666"
                 stroke="#111"
                 stroke-width="1"
                 rx="20"
@@ -145,7 +153,8 @@ import TheHotelAvocadoBookCover from "../images/hotel-avocado.jpg";
                 rx="4"
                 ry="8"
                 fill="url(#dotGrid)"
-                mask="url(#gridMask)"></rect>
+                mask="url(#gridMask)"
+                pointer-events="none"></rect>
               <rect
                 x="10.5"
                 y="37"
@@ -154,8 +163,7 @@ import TheHotelAvocadoBookCover from "../images/hotel-avocado.jpg";
                 stroke="#191919"
                 stroke-width="0.2"
                 fill="#222"
-                id="vhs-slot"
-                ></rect>
+                id="vhs-slot"></rect>
             </svg>
           </div>
         </div>
@@ -171,9 +179,12 @@ import TheHotelAvocadoBookCover from "../images/hotel-avocado.jpg";
         </p>
         <ul class="book-shelf">
           <li data-status="to-read">
-            <img src={EllaMinnowPeaBookCover.src} alt="Ella Minnow Pea book cover" />
-              <span class="book-title">Ella Minnow Pea</span>
-              <span class="book-author">Mark Dunn</span>
+            <img
+              src={EllaMinnowPeaBookCover.src}
+              alt="Ella Minnow Pea book cover"
+            />
+            <span class="book-title">Ella Minnow Pea</span>
+            <span class="book-author">Mark Dunn</span>
           </li>
           <li data-status="read">
             <span class="book-title">Animal Farm</span>
@@ -188,29 +199,35 @@ import TheHotelAvocadoBookCover from "../images/hotel-avocado.jpg";
           <li data-status="read">
             <span class="book-title">Rivers of London</span>
             <span class="book-author">Ben Aaronovitch</span>
-            <img src={RiversOfLondonBookCover.src} alt="Rivers of London book cover" />
+            <img
+              src={RiversOfLondonBookCover.src}
+              alt="Rivers of London book cover"
+            />
           </li>
           <li data-status="reading">
             <span class="book-title">A Little History<br /> of the World</span>
             <span class="book-author">E. H. Gombrich</span>
-            <img src={ALittleHistoryOfTheWorldBookCover.src} alt="A Little History of the World book cover" />
+            <img
+              src={ALittleHistoryOfTheWorldBookCover.src}
+              alt="A Little History of the World book cover"
+            />
           </li>
           <li data-status="to-read">
             <span class="book-title">The Hotel<br /> Avocado</span>
             <span class="book-author">Bob Mortimer</span>
-            <img src={TheHotelAvocadoBookCover.src} alt="The Hotel Avocado book cover" />
+            <img
+              src={TheHotelAvocadoBookCover.src}
+              alt="The Hotel Avocado book cover"
+            />
           </li>
         </ul>
       </article>
     </section>
-    <script>
-      document
-        .querySelectorAll<HTMLLIElement>("[data-video]")
-        .forEach((a) => (a.style.animationDelay = `${Math.random() * 15}s`));
-    </script>
     <script is:inline>
       const initVideoShelfDnD = () => {
-        const tapes = document.querySelectorAll<HTMLLIElement>(".video-shelf > li[data-video]");
+        const tapes = document.querySelectorAll(
+          ".video-shelf > li[data-video]",
+        );
         const slot = document.getElementById("vhs-slot");
         const player = document.getElementById("tv-player");
         if (!slot || !player || tapes.length === 0) return;
@@ -258,7 +275,12 @@ import TheHotelAvocadoBookCover from "../images/hotel-avocado.jpg";
 
         const isOverSlot = (x, y) => {
           const rect = slot.getBoundingClientRect();
-          return x >= rect.left && x <= rect.right && y >= rect.top && y <= rect.bottom;
+          return (
+            x >= rect.left &&
+            x <= rect.right &&
+            y >= rect.top &&
+            y <= rect.bottom
+          );
         };
 
         const moveGhost = (x, y) => {
@@ -308,7 +330,6 @@ import TheHotelAvocadoBookCover from "../images/hotel-avocado.jpg";
           if (droppedOnSlot) {
             if (video) {
               player.src = `https://www.youtube.com/embed/${video}`;
-              console.log(video);
             }
             tape.classList.remove("dragging");
             setLoadedTape(tape);
@@ -323,9 +344,10 @@ import TheHotelAvocadoBookCover from "../images/hotel-avocado.jpg";
             tape.classList.remove("dragging");
             return;
           }
-
           const homeRect = tape.getBoundingClientRect();
+          const dragGhostRect = dragGhost.getBoundingClientRect();
           dragGhost.classList.add("returning");
+          dragGhost.classList.remove("spawned");
           dragGhost.style.transform = `translate3d(${homeRect.left}px, ${homeRect.top}px, 0)`;
 
           const cleanupReturn = () => {
@@ -369,12 +391,19 @@ import TheHotelAvocadoBookCover from "../images/hotel-avocado.jpg";
             document.body.classList.add("video-dragging");
             slot.setAttribute("data-ready", "true");
 
-            dragGhost = tape.cloneNode(true);
-            dragGhost.classList.add("drag-ghost");
+            // Create a ghost element for dragging
+            let clone = tape.cloneNode(true);
+            clone.style.left = `${rect.left}px`;
+            clone.style.top = `${rect.top}px`;
+            clone.style.transformOrigin = `${(offsetX / rect.width) * 100}% ${(offsetY / rect.height) * 100}%`;
+            dragGhost = document.createElement("div");
             dragGhost.style.width = `${rect.width}px`;
             dragGhost.style.height = `${rect.height}px`;
+            dragGhost.classList.add("drag-ghost");
+            dragGhost.appendChild(clone);
             document.body.appendChild(dragGhost);
             moveGhost(event.clientX, event.clientY);
+            dragGhost.classList.add("spawned");
 
             window.addEventListener("pointermove", onPointerMove);
             window.addEventListener("pointerup", onPointerUp);
