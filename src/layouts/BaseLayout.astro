@@ -1,0 +1,210 @@
+---
+import { ClientRouter } from "astro:transitions";
+import Switch from "../svgs/switch.svg";
+
+interface Props {
+  title: string;
+  description: string;
+  page: "/" | "/hobbies" | "/projects";
+}
+
+const { title, description, page } = Astro.props;
+const pureSlide = {
+  forwards: {
+    old: { name: "astroSlideToRight", duration: "0.32s", easing: "ease" },
+    new: { name: "astroSlideFromLeft", duration: "0.32s", easing: "ease" },
+  },
+  backwards: {
+    old: { name: "astroSlideToLeft", duration: "0.32s", easing: "ease" },
+    new: { name: "astroSlideFromRight", duration: "0.32s", easing: "ease" },
+  },
+};
+import "../styles/global.scss";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script is:inline>
+      const preferredTheme = window.matchMedia("(prefers-color-scheme: dark)")
+        .matches
+        ? "dark"
+        : "light";
+      const storedTheme = localStorage.getItem("theme");
+      document.documentElement.setAttribute(
+        "data-theme",
+        storedTheme || preferredTheme,
+      );
+    </script>
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content="/assets/metaImage.jpg" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  </head>
+  <body data-page={page}>
+    <ClientRouter />
+    <div
+      id="viewport-slide"
+      transition:name="viewport-slide"
+      transition:animate={pureSlide}
+    >
+      <div class="site-header-background" aria-hidden="true"></div>
+      <div class="page-shell">
+        <section class="highlight-section">
+          <slot name="highlight" />
+        </section>
+        <main>
+          <slot name="main" />
+        </main>
+      </div>
+    </div>
+    <header
+      class="site-header"
+      transition:name="site-header-content"
+      transition:animate="none"
+      transition:persist
+    >
+      <button id="initials" transition:persist>
+        <span id="initial">V</span>
+      </button>
+      <nav>
+        <ul>
+          <li><a href="/" style="--highlight: var(--green);">home</a></li>
+          <li>
+            <a href="/projects" style="--highlight: var(--blue);">projects</a>
+          </li>
+          <li>
+            <a href="/hobbies" style="--highlight: var(--yellow);">hobbies</a>
+          </li>
+        </ul>
+      </nav>
+      <object class="email" data="assets/email.svg" type="image/svg+xml"
+      ></object>
+      <button id="theme-toggle" transition:persist>
+        <Switch color="var(--background)" />
+      </button>
+    </header>
+    <script is:inline>
+      const normalizePath = (path) =>
+        path.endsWith("/") && path !== "/" ? path.slice(0, -1) : path;
+      const colorMap = {
+        "/": "var(--green)",
+        "/projects": "var(--blue)",
+        "/hobbies": "var(--yellow)",
+      };
+      const routeOrder = {
+        "/": 0,
+        "/projects": 1,
+        "/hobbies": 2,
+      };
+      const getRoot = () => document.documentElement;
+
+      let variation = 0;
+      let swapTimeout;
+      let animTimeout;
+
+      const setTheme = (value) => {
+        const root = getRoot();
+        root.setAttribute("data-theme", value);
+        localStorage.setItem("theme", value);
+      };
+
+      const getTheme = () =>
+        getRoot().getAttribute("data-theme") ||
+        localStorage.getItem("theme") ||
+        (window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light");
+
+      const applyStoredTheme = () => {
+        setTheme(getTheme());
+      };
+
+      const updateHighlightColor = () => {
+        const highlight =
+          colorMap[normalizePath(window.location.pathname)] || "var(--green)";
+        document.body.style.setProperty("--highlight", highlight);
+      };
+
+      const updateActiveLink = () => {
+        const navLinks = document.querySelectorAll("nav > ul > li > a");
+        navLinks.forEach((link) => {
+          if (
+            normalizePath(new URL(link.href).pathname) ===
+            normalizePath(window.location.pathname)
+          ) {
+            link.setAttribute("data-active", "true");
+            return;
+          }
+          link.removeAttribute("data-active");
+        });
+      };
+
+      const bindThemeToggle = () => {
+        const button = document.getElementById("theme-toggle");
+        if (!button) return;
+        button.onclick = () =>
+          setTheme(getTheme() === "dark" ? "light" : "dark");
+      };
+
+      const bindInitials = () => {
+        const initials = document.getElementById("initials");
+        const letter = document.getElementById("initial");
+        if (!initials || !letter) return;
+        initials.onclick = () => {
+          clearTimeout(swapTimeout);
+          clearTimeout(animTimeout);
+          initials.setAttribute("data-interaction", variation.toString());
+          swapTimeout = setTimeout(() => {
+            letter.textContent = letter.textContent === "V" ? "T" : "V";
+          }, 300);
+          animTimeout = setTimeout(() => {
+            initials.removeAttribute("data-interaction");
+            const next = Math.floor(Math.random() * 3);
+            variation = next === variation ? (next + 1) % 3 : next;
+          }, 600);
+        };
+      };
+
+      const syncUI = () => {
+        document.body.style.removeProperty("background");
+        document.body.style.removeProperty("color");
+        applyStoredTheme();
+        updateHighlightColor();
+        updateActiveLink();
+        bindThemeToggle();
+        bindInitials();
+      };
+
+      syncUI();
+      document.addEventListener("astro:after-swap", syncUI);
+      document.addEventListener("astro:page-load", syncUI);
+
+      document.addEventListener("astro:before-preparation", (event) => {
+        const currentTheme = getTheme();
+        event.newDocument.documentElement.setAttribute(
+          "data-theme",
+          currentTheme,
+        );
+
+        const from = routeOrder[normalizePath(event.from.pathname)];
+        const to = routeOrder[normalizePath(event.to.pathname)];
+        if (from === undefined || to === undefined || from === to) return;
+        event.direction = to > from ? "back" : "forward";
+      });
+
+      document.addEventListener("astro:before-swap", (event) => {
+        const currentTheme = getTheme();
+        event.newDocument.documentElement.setAttribute(
+          "data-theme",
+          currentTheme,
+        );
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+<BaseLayout title="Not Found | Vic Trodd" description="Page not found." page="/">
+  <Fragment slot="highlight">
+    <section class="highlight-container">
+      <div class="highlight">
+        <div class="left-highlight text-highlight">
+          <h1>404</h1>
+          <h2>Page not found</h2>
+        </div>
+      </div>
+    </section>
+  </Fragment>
+  <Fragment slot="main">
+    <section style="max-width:1000px;margin:0 auto;padding:1rem;">
+      <p>The page you were looking for does not exist.</p>
+      <p><a href="/">Go home</a></p>
+    </section>
+  </Fragment>
+</BaseLayout>

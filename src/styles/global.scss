@@ -1,0 +1,442 @@
+:root {
+  --COLOR-white: #f8fce6;
+  --COLOR-brown: #171413;
+  --COLOR-green: #688958;
+  --COLOR-blue: #467599;
+  --COLOR-yellow: #f6bd60;
+  --COLOR-red: #d1634d;
+  --COLOR-purple: #50089c;
+
+  --green: var(--COLOR-green);
+  --blue: var(--COLOR-blue);
+  --yellow: var(--COLOR-yellow);
+  --red: var(--COLOR-red);
+  --purple: var(--COLOR-purple);
+
+
+  --background: var(--COLOR-white);
+  --primary: var(--COLOR-brown);
+  --highlight: var(--green);
+
+  --theme-transition-duration: 0.2s;
+
+  &[data-theme="dark"] {
+    --green: color-mix(in srgb, black, var(--COLOR-green) 60%);
+    --blue: color-mix(in srgb, black, var(--COLOR-blue) 60%);
+    --yellow: color-mix(in srgb, black, var(--COLOR-yellow) 60%);
+    --red: color-mix(in srgb, black, var(--COLOR-red) 60%);
+    --purple: color-mix(in srgb, black, var(--COLOR-purple) 60%);
+
+    --background: var(--COLOR-brown);
+    --primary: var(--COLOR-white);
+    --highlight: var(--green);
+
+    [data-hidden-in='light'] {
+      display: none;
+    }
+
+    .cern-logo,
+    .uoy-logo {
+      fill: #fff;
+    }
+  }
+
+  &[data-theme="light"] {
+    b:has(>a) {
+      font-weight: 500;
+    }
+  }
+}
+
+* {
+  transition: all var(--theme-transition-duration) ease-in-out;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--background);
+  color: var(--primary);
+  overflow-x: clip;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+header.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+
+  overflow-x: hidden;
+
+  container-name: header;
+  container-type: inline-size;
+  width: 100%;
+  height: 5em;
+
+  display: flex;
+  gap: 1rem;
+  background-color: var(--highlight);
+  color: var(--COLOR-white);
+
+  @container header (max-width: 609px) {
+    #theme-toggle {
+      margin-left: auto;
+    }
+
+    .email {
+      display: none;
+    }
+  }
+}
+
+.site-header-background {
+  height: 5em;
+  background-color: var(--highlight);
+}
+
+nav {
+  >ul {
+    height: 100%;
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    align-items: center;
+
+    list-style: none;
+
+    >li {
+      height: 100%;
+      display: flex;
+      position: relative;
+
+      font-weight: 600;
+      font-size: 1.1rem;
+
+      margin: 0 auto;
+
+      >a {
+        padding: 0 1em;
+        transition: all var(--theme-transition-duration) ease-in-out;
+
+        display: flex;
+        flex-direction: column;
+        place-content: center;
+
+        &::before {
+          content: '';
+          width: 100%;
+          height: 0;
+
+          position: absolute;
+          top: 0;
+          left: 0;
+
+          border-radius: 0 0 2px 2px;
+          background-color: var(--highlight);
+
+          transition: var(--theme-transition-duration) ease-in-out;
+        }
+
+        &[data-active='true'] {
+          margin-top: 2rem;
+        }
+
+        &:hover:not([data-active='true']) {
+          margin-top: 1rem;
+
+          &::before {
+            height: 2rem;
+          }
+        }
+      }
+    }
+  }
+
+  +.email {
+    margin-left: auto;
+  }
+}
+
+#initials,
+#theme-toggle {
+  height: 100%;
+  display: flex;
+  place-content: center;
+  flex-wrap: wrap;
+
+  border: none;
+  background: none;
+  color: inherit;
+  padding: 0;
+  cursor: pointer;
+}
+
+#theme-toggle {
+  aspect-ratio: 13 / 24;
+}
+
+#initials {
+  aspect-ratio: 1;
+  >#initial {
+    height: unset;
+    margin: auto;
+
+    font-size: 3em;
+    font-weight: bolder;
+    cursor: pointer;
+    user-select: none;
+
+    transition: var(--theme-transition-duration) ease-in-out;
+  }
+}
+
+#initials>#initial:hover:not([data-interaction]) {
+  transform: rotate(15deg) scale(1.2);
+}
+
+#initials[data-interaction] {
+  pointer-events: none;
+
+  &>#initial {
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+
+  &[data-interaction='0']>#initial {
+    animation-name: spin-Y;
+    animation-duration: .2s;
+  }
+
+  &[data-interaction='1']>#initial {
+    animation-name: spin-Z;
+    animation-duration: .3s;
+  }
+
+  &[data-interaction='2']>#initial {
+    animation-name: clock-wipe;
+    animation-duration: .6s;
+  }
+}
+
+@keyframes spin-Y {
+  from {
+    transform: scaleX(1.2) scaleY(1.2);
+  }
+
+  50% {
+    transform: scaleX(-1.2) scaleY(1.2);
+  }
+
+  to {
+    transform: scaleX(1.2) scaleY(1.2);
+  }
+}
+
+@keyframes spin-Z {
+  from {
+    transform: scale(1.2) rotate(0deg);
+  }
+
+  to {
+    transform: scale(1.2) rotate(360deg);
+  }
+}
+
+@keyframes clock-wipe {
+
+  0%,
+  100% {
+    transform: scale(1.2);
+    clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 50%, 0 0, 50% 0)
+  }
+
+  6.25% {
+    clip-path: polygon(50% 50%, 100% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 50%, 0 0, 50% 0)
+  }
+
+  12.5% {
+    clip-path: polygon(50% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 50%, 0 0, 50% 0)
+  }
+
+  18.75% {
+    clip-path: polygon(50% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 50% 100%, 0 100%, 0 50%, 0 0, 50% 0)
+  }
+
+  25% {
+    clip-path: polygon(50% 50%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 0 100%, 0 50%, 0 0, 50% 0)
+  }
+
+  31.25% {
+    clip-path: polygon(50% 50%, 0 100%, 0 100%, 0 100%, 0 100%, 0 100%, 0 100%, 0 50%, 0 0, 50% 0)
+  }
+
+  37.5% {
+    clip-path: polygon(50% 50%, 0 50%, 0 50%, 0 50%, 0 50%, 0 50%, 0 0, 0 50%, 0 0, 50% 0)
+  }
+
+  43.75% {
+    clip-path: polygon(50% 50%, 0 0, 0 0, 0 0, 0 0, 0 0, 0 0, 0 50%, 0 0, 50% 0)
+  }
+
+  50% {
+    clip-path: polygon(50% 50%, 50% 0, 50% 0, 50% 0, 50% 0, 50% 0, 0 0, 0 50%, 0 0, 50% 0)
+  }
+
+  56.25% {
+    clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0, 100% 0)
+  }
+
+  62.5% {
+    clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%, 100% 50%)
+  }
+
+  68.75% {
+    clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 100% 100%)
+  }
+
+  75% {
+    clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%, 50% 100%)
+  }
+
+  81.25% {
+    clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 100%, 0 100%, 0 100%)
+  }
+
+  87.5% {
+    clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 50%, 0 50%, 0 50%)
+  }
+
+  93.75% {
+    clip-path: polygon(50% 50%, 50% 0, 100% 0, 100% 50%, 100% 100%, 50% 100%, 0 100%, 0 50%, 0 0, 0 0)
+  }
+}
+
+section.highlight-section {
+  min-height: 530px;
+  max-height: 1000px;
+  container-name: highlight;
+  container-type: inline-size;
+
+  @container highlight (max-width: 609px) {
+    .image-highlight {
+      opacity: 0;
+    }
+
+    .text-highlight {
+      font-size: min(1em, 2vw);
+    }
+  }
+}
+
+.highlight-container {
+  min-height: 530px;
+  width: 100%;
+  display: flex;
+  background: var(--highlight);
+  color: var(--COLOR-white);
+}
+
+.highlight {
+  min-height: 530px;
+  width: 100%;
+  max-width: 1000px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 1.2rem;
+  align-items: start;
+
+  padding: 0 1rem 2rem 1rem;
+
+  >.left-highlight {
+    order: 0;
+  }
+
+  >.right-highlight {
+    order: 1;
+  }
+
+  >.image-highlight {
+    flex-basis: 35%;
+    height: min-content;
+    line-height: 0;
+    font-size: 0.8rem;
+    transition: all var(--theme-transition-duration) ease-in-out;
+
+    --clip-top-right-cut: 0;
+    --clip-inset: 3rem;
+    --clip-point-0: calc(var(--clip-inset) * var(--clip-top-right-cut));
+    --clip-point-1: calc(var(--clip-inset) + (100% - (2 * var(--clip-inset))) * (var(--clip-top-right-cut)));
+    --clip-point-2: calc(var(--clip-inset) + (100% - (2 * var(--clip-inset))) * (1 - var(--clip-top-right-cut)));
+
+    clip-path: polygon(var(--clip-point-0) 0,
+        calc(100% - var(--clip-inset) + var(--clip-point-0)) 0,
+        100% var(--clip-point-1),
+        calc(100% - var(--clip-point-0)) 100%,
+        calc(var(--clip-inset) - var(--clip-point-0)) 100%,
+        0 var(--clip-point-2));
+
+    &:hover {
+      --clip-inset: 0;
+
+      clip-path: polygon(0 0, 100% 0, 100% calc(100% * var(--clip-top-right-cut)), 100% 100%, 0 100%, 0 calc(100% * (1 - var(--clip-top-right-cut))));
+    }
+
+    &.right-highlight {
+      --clip-top-right-cut: 1;
+    }
+
+    >img {
+      width: 100%;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+ul.chip-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    user-select: none;
+
+    &:hover {
+      transition: none;
+      background-color: var(--highlight);
+      color: var(--COLOR-white);
+    }
+  }
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}

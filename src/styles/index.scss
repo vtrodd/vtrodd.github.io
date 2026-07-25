@@ -1,0 +1,223 @@
+#home-highlight {
+  font-family: monospace;
+  text-transform: uppercase;
+
+  .image-highlight>img {
+    background-image: url('/images/me-low.jpg');
+  }
+
+  .text-highlight {
+    text-align: right;
+
+    h1 {
+      margin: 0;
+      font-size: 5em;
+      white-space: nowrap;
+    }
+
+    h2 {
+      font-size: 2.25em;
+      margin: 0;
+      margin-bottom: 0;
+    }
+
+    #development-carousel {
+      height: 2.25em;
+      line-height: 1;
+      overflow-y: hidden;
+
+      display: flex;
+      justify-content: end;
+      margin-bottom: 0.225em;
+
+      >#carousel {
+        @keyframes dev-carousel {
+
+          0%,
+          16%,
+          99.001%,
+          100% {
+            transform: translateY(0);
+          }
+
+          32%,
+          50% {
+            transform: translateY(-100%);
+          }
+
+          66%,
+          83% {
+            transform: translateY(-200%);
+          }
+
+          99% {
+            transform: translateY(-300%);
+          }
+        }
+
+        transform: translateY(0);
+        animation: dev-carousel 8s linear infinite;
+
+        &:hover {
+          animation-play-state: paused;
+        }
+      }
+    }
+  }
+}
+
+.home-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+  // columns should be 2 side by side if the screen is wide enough, otherwise 1 column
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+  container-name: home-content;
+  container-type: inline-size;
+
+  article,
+  li {
+    border: 1px solid var(--highlight);
+    border-left: 0.22rem solid var(--highlight);
+    background: color-mix(in srgb, var(--highlight), transparent 92%);
+    padding: .5rem .75rem .75rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .two-columns {
+    grid-column: 1 / -1;
+  }
+
+  h3 {
+    margin: 0;
+    text-transform: uppercase;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  ul.experience-list {
+    list-style: none;
+    margin: 0;
+    padding: 0.5rem;
+    gap: 0.5rem;
+    display: grid;
+
+    li {
+      display: grid;
+      grid-template-columns: auto auto 1fr;
+      grid-template-rows: repeat(3, auto);
+      align-items: center;
+
+      container-name: experience-list-item;
+      container-type: inline-size;
+
+      @container experience-list-item (max-width: 520px) {
+        .compact {
+          display: block !important;
+        }
+
+        .expanded {
+          display: none !important;
+        }
+
+        h5 {
+          grid-row: 2 / 3;
+          grid-column: 2 / -1;
+        }
+
+        h6 {
+          margin-left: 0 !important;
+        }
+
+        p {
+          display: none;
+        }
+      }
+
+      &:hover {
+        background-color: var(--highlight);
+        --primary: var(--COLOR-white);
+        color: var(--COLOR-white);
+
+        >.cern-logo,
+        >.uoy-logo {
+          fill: white;
+        }
+      }
+
+      svg {
+        height: 100%;
+        max-width: 4rem;
+        margin-right: 0.5rem;
+        grid-row: 1 / -1;
+        aspect-ratio: 1;
+      }
+
+      h4,
+      h5,
+      h6 {
+        margin: 0;
+        white-space: nowrap;
+      }
+
+      .compact {
+        display: none;
+      }
+
+      h4 {
+        font-size: 1.3rem;
+        margin: 0;
+        grid-column: 2 / -1;
+
+      }
+
+      h5 {
+        font-size: 1rem;
+        text-transform: unset;
+        font-weight: 600;
+        margin: 0;
+      }
+
+      h6 {
+        font-size: 1rem;
+        font-weight: 500;
+        opacity: 0.8;
+        margin-left: 0.5rem;
+      }
+
+      p {
+        margin: 0;
+        grid-column: 2 / -1;
+      }
+    }
+  }
+
+  a {
+    --shimmer: color-mix(in srgb, var(--primary), var(--COLOR-yellow) 50%);
+    background: linear-gradient(135deg,
+        var(--primary) 0% 40%,
+        var(--shimmer) 45% 47%,
+        var(--primary) 50% 100%);
+    background-size: 400%;
+    animation: text-gradient 15s ease-in-out infinite;
+    background-clip: text;
+    color: transparent;
+  }
+}
+
+@keyframes text-gradient {
+  0% {
+    background-position: 100% 50%;
+  }
+
+  30%,
+  100% {
+    background-position: 0% 50%;
+  }
+}
