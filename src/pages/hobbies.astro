@@ -203,9 +203,14 @@ import TheHotelAvocadoBookCover from "../images/hotel-avocado.jpg";
         </ul>
       </article>
     </section>
+    <script>
+      document
+        .querySelectorAll<HTMLLIElement>("[data-video]")
+        .forEach((a) => (a.style.animationDelay = `${Math.random() * 15}s`));
+    </script>
     <script is:inline>
       const initVideoShelfDnD = () => {
-        const tapes = document.querySelectorAll(".video-shelf > li[data-video]");
+        const tapes = document.querySelectorAll<HTMLLIElement>(".video-shelf > li[data-video]");
         const slot = document.getElementById("vhs-slot");
         const player = document.getElementById("tv-player");
         if (!slot || !player || tapes.length === 0) return;
