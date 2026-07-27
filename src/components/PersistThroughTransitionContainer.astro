@@ -1,0 +1,13 @@
+---
+import type {HTMLAttributes, HTMLTag} from 'astro/types'
+type Props<T extends HTMLTag = 'div'> = HTMLAttributes<T> & {element?: T}
+
+const {element: Tag = 'div', ...rest} = Astro.props
+
+const transitionName = crypto.randomUUID().slice(0, 8)
+
+---
+
+<Tag {...rest} transition:name={transitionName}>
+  <slot />
+</Tag>

@@ -1,0 +1,419 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/hobbies.scss";
+import EllaMinnowPeaBookCover from "../images/ella-minnow-pea.jpg";
+import AnimalFarmBookCover from "../images/animal-farm.jpg";
+import _1984BookCover from "../images/1984.jpg";
+import RiversOfLondonBookCover from "../images/rivers-of-london.jpg";
+import ALittleHistoryOfTheWorldBookCover from "../images/a-little-history.jpg";
+import TheHotelAvocadoBookCover from "../images/hotel-avocado.jpg";
+---
+
+<BaseLayout
+  title="Vic Trodd ● Hobbies"
+  description="Music and other hobbies from Vic Trodd."
+  page="/hobbies"
+>
+  <Fragment slot="highlight">
+    <section class="highlight-container" id="hobbies-highlight">
+      <div class="highlight">
+        <div class="left-highlight image-highlight">
+          <img
+            src="/images/orchestra.jpg"
+            alt="Vic playing the baritone saxophone in Harmonie Nautique"
+          />
+        </div>
+        <div class="right-highlight text-highlight">
+          <h1>Hobbies</h1>
+        </div>
+      </div>
+    </section>
+  </Fragment>
+  <Fragment slot="main">
+    <section class="hobbies-content">
+      <article>
+        <h3>Harmonie Nautique</h3>
+        <p>
+          For the past three years, I have had the privilege and pleasure of
+          playing the baritone saxophone with Harmonie Nautique in Geneva.
+          Whilst I've recently played my final concert with them as I move back
+          to the UK, this ensemble has been an unforgettable highlight of my
+          time in Geneva.
+        </p>
+        <h3>Videos</h3>
+        <div class="tv-unit">
+          <ul class="video-shelf">
+            <li data-video="MfrvDkojmZE">
+              <div>
+                <span class="video-title">Symphony No. 4, III Ruhevoll</span>
+                <span class="video-author">G. Mahler</span>
+              </div>
+            </li>
+            <li data-video="UQxu9rsW5ow">
+              <div>
+                <span class="video-title">Danse Diabolique</span>
+                <span class="video-author">J. Hellmesberger</span>
+              </div>
+            </li>
+            <li data-video="RLYxeYiQ7zo">
+              <div>
+                <span class="video-title">Prayer</span>
+                <span class="video-author">E. Bloch</span>
+              </div>
+            </li>
+            <li data-video="bgZyJs5IJtI">
+              <div>
+                <span class="video-title">The Jungle Book</span>
+                <span class="video-author">G. Burns</span>
+              </div>
+            </li>
+          </ul>
+          <div class="tv-display">
+            <div class="tv-screen-video">
+              <iframe
+                id="tv-player"
+                src=""
+                title="G. Mahler, symphonie n°4, 3 Ruhevoll, Harmonie Nautique de Genève"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+                loading="lazy"></iframe>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+              <defs>
+                <mask id="tvBodyMask">
+                  <rect width="48" height="46" fill="white"></rect>
+                  <rect
+                    x="4"
+                    y="4"
+                    width="40"
+                    height="30"
+                    rx="20"
+                    ry="1"
+                    fill="black"></rect>
+                </mask>
+                <mask id="gridMask">
+                  <rect width="100%" height="46" fill="white"></rect>
+                  <rect width="100%" height="36" fill="black"></rect>
+                  <rect x="10" y="36" width="28" height="10" fill="black"
+                  ></rect>
+                </mask>
+
+                <pattern
+                  id="dotGrid"
+                  x="0"
+                  y="0"
+                  width="1"
+                  height="1"
+                  patternUnits="userSpaceOnUse"
+                >
+                  <circle cx="0.5" cy="0.3" r="0.3" fill="#202020"></circle>
+                </pattern>
+              </defs>
+
+              <rect x="2" y="44" width="44" height="4" fill="#222"></rect>
+              <rect
+                x="0"
+                y="0"
+                width="48"
+                height="46"
+                rx="4"
+                ry="8"
+                fill="#252525"
+                mask="url(#tvBodyMask)"
+                pointer-events="none"></rect>
+              <rect
+                x="4"
+                y="4"
+                width="40"
+                height="30"
+                fill="#666"
+                stroke="#111"
+                stroke-width="1"
+                rx="20"
+                ry="1"
+                id="tv-screen"
+              >
+              </rect>
+              <text
+                x="24"
+                y="36"
+                text-anchor="middle"
+                font-family="monospace"
+                font-size="1.5"
+                font-weight="600"
+                fill="#cca">TRODD</text
+              >
+
+              <rect
+                x="0"
+                y="0"
+                width="48"
+                height="46"
+                rx="4"
+                ry="8"
+                fill="url(#dotGrid)"
+                mask="url(#gridMask)"
+                pointer-events="none"></rect>
+              <rect
+                x="10.5"
+                y="37"
+                width="27"
+                height="5"
+                stroke="#191919"
+                stroke-width="0.2"
+                fill="#222"
+                id="vhs-slot"></rect>
+            </svg>
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <h3>Reading</h3>
+        <p>
+          I used to be the biggest bookworm when I was younger, and I really
+          fell off the wagon at some point. Here are some of the books I've
+          either read recently, that I'm currently reading, or that are next on
+          my list.
+        </p>
+        <ul class="book-shelf">
+          <li data-status="to-read">
+            <img
+              src={EllaMinnowPeaBookCover.src}
+              alt="Ella Minnow Pea book cover"
+            />
+            <span class="book-title">Ella Minnow Pea</span>
+            <span class="book-author">Mark Dunn</span>
+          </li>
+          <li data-status="read">
+            <span class="book-title">Animal Farm</span>
+            <span class="book-author">George Orwell</span>
+            <img src={AnimalFarmBookCover.src} alt="Animal Farm book cover" />
+          </li>
+          <li data-status="read">
+            <span class="book-title">1984</span>
+            <span class="book-author">George Orwell</span>
+            <img src={_1984BookCover.src} alt="1984 book cover" />
+          </li>
+          <li data-status="read">
+            <span class="book-title">Rivers of London</span>
+            <span class="book-author">Ben Aaronovitch</span>
+            <img
+              src={RiversOfLondonBookCover.src}
+              alt="Rivers of London book cover"
+            />
+          </li>
+          <li data-status="reading">
+            <span class="book-title">A Little History<br /> of the World</span>
+            <span class="book-author">E. H. Gombrich</span>
+            <img
+              src={ALittleHistoryOfTheWorldBookCover.src}
+              alt="A Little History of the World book cover"
+            />
+          </li>
+          <li data-status="to-read">
+            <span class="book-title">The Hotel<br /> Avocado</span>
+            <span class="book-author">Bob Mortimer</span>
+            <img
+              src={TheHotelAvocadoBookCover.src}
+              alt="The Hotel Avocado book cover"
+            />
+          </li>
+        </ul>
+      </article>
+    </section>
+    <script is:inline>
+      const initVideoShelfDnD = () => {
+        const tapes = document.querySelectorAll(
+          ".video-shelf > li[data-video]",
+        );
+        const slot = document.getElementById("vhs-slot");
+        const player = document.getElementById("tv-player");
+        if (!slot || !player || tapes.length === 0) return;
+        if (slot.getAttribute("data-dnd-initialized") === "true") return;
+        slot.setAttribute("data-dnd-initialized", "true");
+
+        let activeTape = null;
+        let dragGhost = null;
+        let pointerId = null;
+        let offsetX = 0;
+        let offsetY = 0;
+        let frame = null;
+        let ghostX = 0;
+        let ghostY = 0;
+        let loadedTape = document.querySelector(".video-shelf > li.loaded");
+
+        const setLoadedTape = (tape) => {
+          if (loadedTape && loadedTape !== tape) {
+            loadedTape.classList.remove("loaded");
+          }
+          loadedTape = tape;
+          if (loadedTape) {
+            loadedTape.classList.add("loaded");
+            slot.setAttribute("data-has-loaded", "true");
+            return;
+          }
+          slot.removeAttribute("data-has-loaded");
+        };
+
+        const ejectLoadedTape = () => {
+          if (!loadedTape) return;
+          loadedTape.classList.remove("loaded");
+          loadedTape = null;
+          slot.removeAttribute("data-has-loaded");
+          player.src = "";
+        };
+
+        if (loadedTape) {
+          slot.setAttribute("data-has-loaded", "true");
+        }
+
+        slot.addEventListener("click", () => {
+          ejectLoadedTape();
+        });
+
+        const isOverSlot = (x, y) => {
+          const rect = slot.getBoundingClientRect();
+          return (
+            x >= rect.left &&
+            x <= rect.right &&
+            y >= rect.top &&
+            y <= rect.bottom
+          );
+        };
+
+        const moveGhost = (x, y) => {
+          if (!dragGhost) return;
+          ghostX = x - offsetX;
+          ghostY = y - offsetY;
+          if (frame === null) {
+            frame = requestAnimationFrame(() => {
+              if (dragGhost) {
+                dragGhost.style.transform = `translate3d(${ghostX}px, ${ghostY}px, 0)`;
+              }
+              frame = null;
+            });
+          }
+          if (isOverSlot(x, y)) {
+            slot.setAttribute("data-over", "true");
+            return;
+          }
+          slot.removeAttribute("data-over");
+        };
+
+        const endDrag = (x, y) => {
+          if (!activeTape) return;
+          const tape = activeTape;
+          const video = tape.getAttribute("data-video");
+          const droppedOnSlot = isOverSlot(x, y);
+
+          if (pointerId !== null && tape.hasPointerCapture(pointerId)) {
+            tape.releasePointerCapture(pointerId);
+          }
+          pointerId = null;
+
+          activeTape = null;
+          document.body.classList.remove("video-dragging");
+          slot.removeAttribute("data-ready");
+          slot.removeAttribute("data-over");
+
+          if (frame !== null) {
+            cancelAnimationFrame(frame);
+            frame = null;
+          }
+
+          window.removeEventListener("pointermove", onPointerMove);
+          window.removeEventListener("pointerup", onPointerUp);
+          window.removeEventListener("pointercancel", onPointerCancel);
+
+          if (droppedOnSlot) {
+            if (video) {
+              player.src = `https://www.youtube.com/embed/${video}`;
+            }
+            tape.classList.remove("dragging");
+            setLoadedTape(tape);
+            if (dragGhost) {
+              dragGhost.remove();
+              dragGhost = null;
+            }
+            return;
+          }
+
+          if (!dragGhost) {
+            tape.classList.remove("dragging");
+            return;
+          }
+          const homeRect = tape.getBoundingClientRect();
+          const dragGhostRect = dragGhost.getBoundingClientRect();
+          dragGhost.classList.add("returning");
+          dragGhost.classList.remove("spawned");
+          dragGhost.style.transform = `translate3d(${homeRect.left}px, ${homeRect.top}px, 0)`;
+
+          const cleanupReturn = () => {
+            tape.classList.remove("dragging");
+            if (dragGhost) {
+              dragGhost.removeEventListener("transitionend", cleanupReturn);
+              dragGhost.remove();
+              dragGhost = null;
+            }
+          };
+
+          dragGhost.addEventListener("transitionend", cleanupReturn);
+        };
+
+        const onPointerMove = (event) => {
+          if (!activeTape) return;
+          moveGhost(event.clientX, event.clientY);
+        };
+
+        const onPointerUp = (event) => {
+          endDrag(event.clientX, event.clientY);
+        };
+
+        const onPointerCancel = () => {
+          slot.removeAttribute("data-over");
+          endDrag(-1, -1);
+        };
+
+        tapes.forEach((tape) => {
+          tape.addEventListener("pointerdown", (event) => {
+            if (event.button !== 0) return;
+            event.preventDefault();
+            const rect = tape.getBoundingClientRect();
+            offsetX = event.clientX - rect.left;
+            offsetY = event.clientY - rect.top;
+
+            pointerId = event.pointerId;
+            tape.setPointerCapture(pointerId);
+            activeTape = tape;
+            tape.classList.add("dragging");
+            document.body.classList.add("video-dragging");
+            slot.setAttribute("data-ready", "true");
+
+            // Create a ghost element for dragging
+            let clone = tape.cloneNode(true);
+            clone.style.left = `${rect.left}px`;
+            clone.style.top = `${rect.top}px`;
+            clone.style.transformOrigin = `${(offsetX / rect.width) * 100}% ${(offsetY / rect.height) * 100}%`;
+            dragGhost = document.createElement("div");
+            dragGhost.style.width = `${rect.width}px`;
+            dragGhost.style.height = `${rect.height}px`;
+            dragGhost.classList.add("drag-ghost");
+            dragGhost.appendChild(clone);
+            document.body.appendChild(dragGhost);
+            moveGhost(event.clientX, event.clientY);
+            dragGhost.classList.add("spawned");
+
+            window.addEventListener("pointermove", onPointerMove);
+            window.addEventListener("pointerup", onPointerUp);
+            window.addEventListener("pointercancel", onPointerCancel);
+          });
+        });
+      };
+
+      initVideoShelfDnD();
+      document.addEventListener("astro:after-swap", initVideoShelfDnD);
+    </script>
+  </Fragment>
+</BaseLayout>

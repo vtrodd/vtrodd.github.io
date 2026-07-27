@@ -1,0 +1,39 @@
+---
+import './Email.scss'
+---
+
+<button class='e' transition:persist>
+  <span class='e-icon'>@</span>
+  <span class='e-text'>reveal &nbsp;email</span>
+</button>
+
+<script>
+  const button = document.querySelector('.e')
+  const icon = button.querySelector('.e-icon')
+  const text = button.querySelector('.e-text')
+
+  let isDecoded = false
+
+  const runDecodeEffect = () => {
+    const email = atob('dmljQHRyb2RkLmRldg==')
+    const glyphs = 'X#$&%*?!@'
+    let i = 0
+
+    const interval = setInterval(() => {
+      text.innerText = email
+        .split('')
+        .map((char, index) => (index < i ? char : glyphs[Math.floor(Math.random() * glyphs.length)]))
+        .join('')
+
+      if (i > email.length) {
+        clearInterval(interval)
+        isDecoded = true
+        button.removeEventListener('mouseenter', runDecodeEffect)
+      }
+
+      i++
+    }, 60)
+  }
+
+  button.addEventListener('mouseenter', runDecodeEffect)
+</script>

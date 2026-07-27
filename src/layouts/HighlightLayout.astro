@@ -1,0 +1,48 @@
+---
+import {ClientRouter} from 'astro:transitions'
+import Header from '../components/Header/Header.astro'
+import SlideTransitionContainer from '../components/SlideTransitionContainer.astro'
+import './HighlightLayout.scss'
+
+type Props = {
+  title: string
+  color: 'white' | 'brown' | 'blue' | 'green' | 'yellow' | 'purple' | 'red'
+}
+
+const {title, color} = Astro.props
+---
+
+<!doctype html>
+<html
+  lang='en'
+  data-color={color}
+>
+  <head>
+    <meta charset='UTF-8' />
+    <meta
+      name='viewport'
+      content='width=device-width, initial-scale=1.0'
+    />
+    <title>{title}</title>
+    <ClientRouter />
+    <script is:inline src='src/scripts/initTheme.js'></script>
+  </head>
+  <body>
+    <Header />
+    <SlideTransitionContainer
+      element='section'
+      transitionName='highlight-slide'
+      class='highlight-container'
+    >
+      <slot name='highlight' />
+    </SlideTransitionContainer>
+    <SlideTransitionContainer
+      element='main'
+      transitionName='content-slide'
+      class='content-container'
+    >
+      <slot name='content' />
+    </SlideTransitionContainer>
+    <script src='../scripts/navigation.ts'></script>
+  </body>
+</html>

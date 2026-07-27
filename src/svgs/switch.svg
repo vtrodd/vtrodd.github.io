@@ -1,11 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 24" fill="currentColor">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 24" fill="currentColor" class="switch-icon">
   <defs>
     <style>
-      line {
-        transform-origin: 12px 12px;
+      .switch-icon {
+        transition: all 0.2s ease-in-out;
       }
 
-      :root[data-theme="dark"] line {
+      .switch-icon line {
+        transform-origin: 12px 12px;
+        transition: all 0.2s ease-in-out;
+      }
+
+      :root[data-theme="dark"] .switch-icon line {
         transform: rotate(-83.25deg);
       }
     </style>

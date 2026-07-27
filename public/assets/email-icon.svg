@@ -1,16 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 16" class="email-svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 12" class="email-icon-svg">
   <defs>
     <style>
-      .email-svg text {
+      .email-icon-svg text {
         font-family: "Segoe UI", Roboto, Arial, sans-serif;
         fill: #f8fce6;
-        font-weight: 400;
+        font-weight: 600;
         font-size: 6px;
       }
     </style>
   </defs>
   <a xmlns="http://www.w3.org/2000/svg" href="mailto:vic@trodd.dev" aria-label="Email Me!">
     <rect />
-    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">vic@trodd.dev</text>
+    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle">@</text>
   </a>
 </svg>

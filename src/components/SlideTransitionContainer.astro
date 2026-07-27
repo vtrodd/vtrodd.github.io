@@ -1,0 +1,19 @@
+---
+import type {HTMLAttributes, HTMLTag} from 'astro/types'
+type Props<T extends HTMLTag = 'div'> = HTMLAttributes<T> & {transitionName: string; element?: T}
+
+const {transitionName, element: Tag = 'div', ...rest} = Astro.props
+
+const directionalSlide = {
+  forwards: {old: {name: 'astroSlideToRight', duration: '0.5s', easing: 'ease'}, new: {name: 'astroSlideFromLeft', duration: '0.5s', easing: 'ease'}},
+  backwards: {old: {name: 'astroSlideToLeft', duration: '0.5s', easing: 'ease'}, new: {name: 'astroSlideFromRight', duration: '0.5s', easing: 'ease'}},
+}
+---
+
+<Tag
+  transition:name={transitionName}
+  transition:animate={directionalSlide}
+  {...rest}
+>
+  <slot />
+</Tag>

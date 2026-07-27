@@ -1,0 +1,214 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/index.scss";
+import CERNLogo from "../svgs/cern.svg";
+import UOYLogo from "../svgs/uoy.svg";
+---
+
+<BaseLayout
+  title="Vic Trodd ● Web & Software Developer"
+  description="Full stack engineer at CERN building Product Lifecycle Management tools."
+  page="/"
+>
+  <Fragment slot="highlight">
+    <section class="highlight-container" id="home-highlight">
+      <div class="highlight">
+        <div class="left-highlight image-highlight">
+          <img src="/images/me.jpg" alt="Vic Trodd" />
+        </div>
+        <div class="right-highlight text-highlight">
+          <h1>Vic Trodd</h1>
+          <div
+            id="development-carousel"
+            aria-label="Software, game, and web development"
+          >
+            <div id="carousel" aria-hidden="true">
+              <h2>Software</h2>
+              <h2>Game</h2>
+              <h2>Web</h2>
+              <h2>Software</h2>
+            </div>
+            <h2>&nbsp;Development</h2>
+          </div>
+          <h2>Photography</h2>
+          <h2>Music</h2>
+        </div>
+      </div>
+    </section>
+  </Fragment>
+  <Fragment slot="main">
+    <section class="home-content">
+      <article>
+        <h3>Hello!</h3>
+        <p>
+          Welcome to my site! I'm Vic. I have been doing software development at
+          CERN since 2021 for their Product Lifecycle Management system. Within
+          this team, I work on UX, UI, and backend development, mostly in React,
+          TypeScript, and C#.
+        </p>
+        <br />
+        <p>
+          Before this, I studied Interactive Media at the University of York. In
+          September this year I will return to York to start an MSc in
+          Human-Centred Interactive Technologies.
+        </p>
+        <br />
+        <p>
+          If I'm not at my computer, you can probably find me performing with <b
+            ><a
+              href="https://harmonie-nautique.ch/"
+              target="_blank"
+              rel="noopener noreferrer">Harmonie Nautique</a
+            ></b
+          >
+          in Geneva or in the pit band for a <b
+            ><a
+              href="https://gaos.ch/"
+              target="_blank"
+              rel="noopener noreferrer">GAOS</a
+            ></b
+          > production!
+        </p>
+      </article>
+
+      <article>
+        <h3>Technologies</h3>
+        <ul class="chip-list">
+          <li>TypeScript</li>
+          <li>React</li>
+          <li>Astro</li>
+          <li>CSS3</li>
+          <li>HTML5</li>
+          <li>C#</li>
+          <li>Java</li>
+          <li>Kotlin</li>
+          <li>Python</li>
+          <li>Git</li>
+          <li>Docker</li>
+          <li>UI.Vision</li>
+          <li>Adobe Creative Suite</li>
+          <li>Musescore</li>
+        </ul>
+        <h3>Languages</h3>
+        <ul class="chip-list">
+          <li>English</li>
+          <li>French</li>
+          <li>Portuguese</li>
+          <li>Welsh</li>
+        </ul>
+        <h3>Instruments</h3>
+        <ul class="chip-list">
+          <li>Saxophone</li>
+          <li>Clarinet</li>
+          <li>Flute</li>
+          <li>Piano</li>
+          <li>Guitar</li>
+        </ul>
+      </article>
+
+      <article class="two-columns">
+        <h3>Experience</h3>
+        <ul class="experience-list">
+          <li>
+            <CERNLogo class="cern-logo" />
+            <h4 class="expanded">
+              <a
+                href="https://home.cern/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Conseil Européen pour la Recherche Nucléaire
+              </a>
+            </h4>
+            <h4 class="compact">
+              <a
+                href="https://home.cern/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                CERN
+              </a>
+            </h4>
+            <h5>Software Engineer</h5>
+            <h6>2023 - 2026</h6>
+            <p>Graduate position on the PLM team</p>
+          </li>
+          <li>
+            <UOYLogo class="uoy-logo" />
+            <h4>University of York</h4>
+            <h5 class="expanded">
+              <a
+                href="https://www.york.ac.uk/study/undergraduate/courses/bsc-interactive-media/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                BSc Interactive Media with Placement Year
+              </a>
+            </h5>
+            <h5 class="compact">
+              <a
+                href="https://www.york.ac.uk/study/undergraduate/courses/bsc-interactive-media/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                BSc Interactive Media
+              </a>
+            </h5>
+            <h6>2022 - 2023</h6>
+            <p>
+              Modules included Advanced Interaction Techniques, Gaming: Industry
+              & Culture, and Mobile Interaction Design
+            </p>
+          </li>
+          <li>
+            <CERNLogo class="cern-logo" />
+            <h4 class="expanded">
+              <a
+                href="https://home.cern/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Conseil Européen pour la Recherche Nucléaire
+              </a>
+            </h4>
+            <h4 class="compact">
+              <a
+                href="https://home.cern/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                CERN
+              </a>
+            </h4>
+            <h5>Software Engineer</h5>
+            <h6>2021 - 2022</h6>
+            <p>University placement year on the PLM team</p>
+          </li>
+          <li>
+            <UOYLogo class="uoy-logo" />
+            <h4>University of York</h4>
+            <h5 class="expanded">
+              <a
+                href="https://www.york.ac.uk/study/undergraduate/courses/bsc-interactive-media/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                BSc Interactive Media
+              </a>
+            </h5>
+            <h6>2019 - 2021</h6>
+            <p>
+              Modules included Web Development, User Experience Design, and
+              Interactive Media & Society
+            </p>
+          </li>
+        </ul>
+      </article>
+    </section>
+    <script>
+      document
+        .querySelectorAll("a")
+        .forEach((a) => (a.style.animationDelay = `${Math.random() * 5}s`));
+    </script>
+  </Fragment>
+</BaseLayout>

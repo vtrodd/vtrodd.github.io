@@ -1,0 +1,78 @@
+:root {
+  --COLOR-white: #f8fce6;
+  --COLOR-brown: #171413;
+  --COLOR-green: #688958;
+  --COLOR-blue: #467599;
+  --COLOR-yellow: #f6bd60;
+  --COLOR-red: #d1634d;
+  --COLOR-purple: #50089c;
+
+  --green: var(--COLOR-green);
+  --blue: var(--COLOR-blue);
+  --yellow: var(--COLOR-yellow);
+  --red: var(--COLOR-red);
+  --purple: var(--COLOR-purple);
+
+  --background: var(--COLOR-white);
+  --primary: var(--COLOR-brown);
+  --highlight: var(--green);
+
+  --theme-transition-duration: 0.2s;
+
+  &[data-theme="dark"] {
+    --green: color-mix(in srgb, black, var(--COLOR-green) 60%);
+    --blue: color-mix(in srgb, black, var(--COLOR-blue) 60%);
+    --yellow: color-mix(in srgb, black, var(--COLOR-yellow) 60%);
+    --red: color-mix(in srgb, black, var(--COLOR-red) 60%);
+    --purple: color-mix(in srgb, black, var(--COLOR-purple) 60%);
+
+    --background: var(--COLOR-brown);
+    --primary: var(--COLOR-white);
+  }
+}
+
+* {
+  transition: all var(--theme-transition-duration) ease-in-out;
+
+  &[data-color="green"] {
+    --highlight: var(--green);
+  }
+
+  &[data-color="blue"] {
+    --highlight: var(--blue);
+  }
+
+  &[data-color="yellow"] {
+    --highlight: var(--yellow);
+  }
+
+  &[data-color="red"] {
+    --highlight: var(--red);
+  }
+
+  &[data-color="purple"] {
+    --highlight: var(--purple);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--background);
+  color: var(--primary);
+  overflow-x: clip;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+}

@@ -1,0 +1,21 @@
+.e {
+  margin-right: 0.5em;
+  .e-icon {
+    font-size: 2em;
+    font-weight: bolder;
+  }
+  .e-text {
+    font-size: 1.2em;
+    font-family: monospace;
+    white-space: nowrap;
+    display: none;
+  }
+  @container header (min-width: 500px) {
+    .e-icon {
+      display: none;
+    }
+    .e-text {
+      display: block;
+    }
+  }
+}

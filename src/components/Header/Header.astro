@@ -1,0 +1,51 @@
+---
+import SlideTransitionContainer from '../../components/SlideTransitionContainer.astro'
+import Initials from '../../components/Initials/Initials.astro'
+import './Header.scss'
+import PersistThroughTransitionContainer from '../PersistThroughTransitionContainer.astro'
+import Menu from '../../svgs/menu.svg'
+import Switch from '../../svgs/switch.svg'
+import Email from '../../components/Email/Email.astro'
+---
+
+<header>
+  <SlideTransitionContainer
+    transitionName='header-background'
+    class='header-background'
+  />
+  <PersistThroughTransitionContainer
+    element='section'
+    class='header-content'
+  >
+    <Initials />
+    <nav>
+      <button id='menu-toggle' transition:persist>
+        <Menu />
+      </button>
+      <ul>
+        <li data-color='green'><a href='/'>home</a></li>
+        <li data-color='blue'>
+          <a href='/projects'>projects</a>
+        </li>
+        <li data-color='yellow'>
+          <a href='/hobbies'>hobbies</a>
+        </li>
+      </ul>
+    </nav>
+    <Email />
+    <button id='theme-toggle'>
+      <Switch />
+    </button>
+  </PersistThroughTransitionContainer>
+</header>
+
+<script>
+  import {bindThemeToggle} from '../../scripts/theme.ts'
+  import {bindMenuToggle} from '../../scripts/menu.ts'
+  document.addEventListener('astro:page-load', () => {
+    bindThemeToggle()
+    bindMenuToggle()
+  })
+</script>
+
+<script></script>

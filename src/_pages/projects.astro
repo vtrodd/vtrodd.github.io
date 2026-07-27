@@ -1,0 +1,76 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import "../styles/projects.scss";
+---
+
+<BaseLayout
+  title="Vic Trodd ● Projects"
+  description="View Vic Trodd's projects."
+  page="/projects"
+>
+  <Fragment slot="highlight">
+    <section class="highlight-container" id="projects-highlight">
+      <div class="highlight">
+        <div class="left-highlight text-highlight">
+          <h1>Projects</h1>
+        </div>
+      </div>
+    </section>
+  </Fragment>
+  <Fragment slot="main">
+    <section class="projects-content">
+      <article>
+        <h3>Aras PLM Data Cloner</h3>
+        <p>
+          A tool to export business data from Aras PLM to another Aras PLM
+          instance, handling existing data and relationships between items. This
+          tool was created to help supporters at CERN clone production data to a
+          test environment.
+        </p>
+        <p>
+          This tool sits on top of CERN's existing PLM UI and uses a custom
+          built TypeScript API to communicate with the Aras PLM servers.
+        </p>
+        <p>
+          Using this tool allows you to copy CAD files to the new instance,
+          create new database items and new versions of existing items, and
+          maintain the correct relationships in the structure.
+        </p>
+        <ul class="chip-list">
+          <li class="chip">SQL</li>
+          <li class="chip">C#</li>
+          <li class="chip">React</li>
+          <li class="chip">TypeScript</li>
+          <li class="chip">SCSS</li>
+          <li class="chip">Aras PLM</li>
+          <li class="chip">XML</li>
+          <li class="chip">REST API</li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>This Website</h3>
+        <p>
+          This was my first time using Astro, and it's definitely grown on me in
+          that time. I wanted to create a website that was simple and easy to
+          maintain whilst still handling complexity well, and Astro has been
+          perfect for that.
+        </p>
+        <p>
+          The site is still a work in progress, hence why none of these projects
+          have any definition past some basic information. I will be adding more
+          information in the future, but for now, I wanted to get the site up
+          and running.
+        </p>
+        <p>
+          10 out of 10. I would absolutely recommend Astro to anyone looking to
+          create a static site.
+        </p>
+        <ul class="chip-list">
+          <li class="chip">Astro</li>
+          <li class="chip">SCSS</li>
+        </ul>
+      </article>
+    </section>
+  </Fragment>
+</BaseLayout>

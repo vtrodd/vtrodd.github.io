@@ -7,12 +7,36 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "host": "astro dev --host",
-    "deploy": "astro build && gh-pages -d dist --dotfiles"
+    "host": "astro dev --host"
   },
   "devDependencies": {
-    "astro": "^5.13.5",
-    "gh-pages": "^6.3.0",
-    "sass": "^1.101.7"
+    "astro": "^5.18.2",
+    "prettier": "^3.9.6",
+    "prettier-plugin-astro": "^0.14.1",
+    "sass": "^1.102.0",
+    "typescript": "^5.9.3"
+  },
+  "prettier": {
+    "plugins": ["prettier-plugin-astro"],
+    "overrides": [
+      {
+        "files": "*.astro",
+        "options": {
+          "parser": "astro"
+        }
+      }
+    ],
+    "arrowParens": "avoid",
+    "bracketSameLine": false,
+    "bracketSpacing": false,
+    "experimentalTernaries": true,
+    "jsxSingleQuote": true,
+    "printWidth": 100,
+    "objectWrap": "preserve",
+    "proseWrap": "preserve",
+    "semi": false,
+    "singleQuote": true,
+    "singleAttributePerLine": true,
+    "trailingComma": "all"
   }
 }

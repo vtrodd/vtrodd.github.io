@@ -4,5 +4,9 @@ export default defineConfig({
   site: "https://vic.trodd.dev",
   server: {
     allowedHosts: ['vtpc']
-  }
+  },
+  devToolbar: {
+    enabled: false
+  },
+  compressHTML: false
 });
